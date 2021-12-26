@@ -1,0 +1,10 @@
+.alert-success {
+    background-color: rgb(85, 219, 118);
+    height: 30px;
+    width: 100%;
+    color: whitesmoke;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
