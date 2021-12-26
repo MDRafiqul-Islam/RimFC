@@ -28,6 +28,8 @@ Route::group(['prefix'=>'user'],function (){
         })->name('website');
 
 Route::get('/pages/playersList',[UserHomeController::class, 'showPlayer'])->name('user.pages.playerslist');
+Route::get('/pages/news',[UserHomeController::class, 'shownews'])->name('user.pages.news');
+Route::get('/pages/news',[UserHomeController::class, 'shownewsdetailes'])->name('user.pages.newsDetails');
 
 
 });

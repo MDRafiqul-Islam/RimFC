@@ -71,7 +71,7 @@ h2{
     @if ( value($player->position) == 'CF'||value($player->position) == 'RWF'|| value($player->position) == 'LWF'||value($player->position) == 'SS')
     <div class="playersec">
     <div class="img">
-            <img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1">
+        <a href="#"><img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1"></a>
     </div>
     <div class="info">
             <h4>{{ $player->jersy_no }}</h4><br>
@@ -90,7 +90,7 @@ h2{
     @if ( value($player->position) == 'CMF'||value($player->position) == 'AMF'||value($player->position) == 'DMF')
     <div class="playersec">
     <div class="img">
-            <img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1">
+            <a href="#"><img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1"></a>
     </div>
     <div class="info">
             <h4>{{ $player->jersy_no }}</h4><br>
@@ -110,7 +110,7 @@ h2{
     @if ( value($player->position) == 'CB'||value($player->position) == 'RB'||value($player->position) == 'LB')
     <div class="playersec">
     <div class="img">
-            <img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1">
+        <a href="#">  <img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1"></a>
     </div>
     <div class="info">
             <h4>{{ $player->jersy_no }}</h4><br>
@@ -129,7 +129,7 @@ h2{
     @if ( value($player->position) == 'GK')
     <div class="playersec">
     <div class="img">
-            <img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1">
+        <a href="#">  <img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1"> </a>
     </div>
     <div class="info">
             <h4>{{ $player->jersy_no }}</h4><br>
@@ -140,5 +140,7 @@ h2{
    @endif
 @endforeach
 </section>
+<br>
+<br>
 
 @endsection

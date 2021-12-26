@@ -17,7 +17,7 @@
                 menu
               </button>
               <ul class="nav__wrapper">
-                <li class="nav__item"><a href="#">News</a></li>
+                <li class="nav__item"><a href="{{ route('user.pages.news') }}">News</a></li>
                 <li class="nav__item"><a href="#">Video</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
