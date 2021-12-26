@@ -2,7 +2,7 @@
       <div class="site-header__top">
         <div class="wrapper site-header__wrapper">
           <div class="site-header__middle">
-          <a href="#"><img class="logo" src="{{url('images/RIMFC.jpg')}}" ></a>
+          <a href="#"><img class="logo" src="{{url('RIMFC.jpg')}}" ></a>
           </div>
           <div class="site-header__end top">
             <a href="#">Login</a>
@@ -26,7 +26,7 @@
                     <a href="#">Point Tables</a>
                   </div>
                 </li>
-                <li class="nav__item"><a href="{{url('admin/pages/playerList')}}">Players</a></li>
+                <li class="nav__item"><a href="{{ route('user.pages.playerslist') }}">Players</a></li>
                 <li class="nav__item"><a href="#">Ticket</a></li>
                 <li class="nav__item"><a href="#">Museum</a></li>
                 <li class="nav__item">More

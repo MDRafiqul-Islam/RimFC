@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\UserController as AdminUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\PlayerListController;
+use App\Http\Controllers\user\UserHomeController;
 use Illuminate\Routing\Route as RoutingRoute;
 
 /*
@@ -17,9 +18,22 @@ use Illuminate\Routing\Route as RoutingRoute;
 |
 */
 
-Route::get('/', function () {
-    return view('admin/welcome');
+Route::get('/',[UserHomeController::class, 'home'])->name('website');
+
+//user
+
+Route::group(['prefix'=>'user'],function (){
+    Route::get('/', function () {
+            return view('user.welcome');
+        })->name('website');
+
+Route::get('/pages/playersList',[UserHomeController::class, 'showPlayer'])->name('user.pages.playerslist');
+
+
 });
+
+
+//admin
 
 
 Route::get('admin/login',[AdminUserController::class, 'login'])->name('admin.login');
@@ -30,7 +44,7 @@ Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
             return view('welcome');
         })->name('home');
 
-Route::get('admin/logout',[AdminUserController::class,'logout'])->name('admin.logout');
+Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 
 //players
 Route::get('/pages/playersList',[PlayerListController::class, 'playerList'])->name('admin.pages.playerslist');
