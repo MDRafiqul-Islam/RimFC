@@ -29,7 +29,7 @@ Route::group(['prefix'=>'user'],function (){
 
 Route::get('/pages/playersList',[UserHomeController::class, 'showPlayer'])->name('user.pages.playerslist');
 Route::get('/pages/news',[UserHomeController::class, 'shownews'])->name('user.pages.news');
-//Route::get('/pages/news',[UserHomeController::class, 'shownewsdetailes'])->name('user.pages.newsDetails');
+Route::get('/pages/newsdetailes/{news_id}',[UserHomeController::class, 'shownewsdetailes'])->name('user.pages.newsDetails');
 
 
 });
@@ -62,4 +62,8 @@ Route::get('/pages/searchplayers',[PlayerListController::class, 'serach'])->name
 Route::get('/pages/news',[NewsController::class, 'news'])->name('admin.pages.news');
 Route::get('/pages/createnews',[NewsController::class, 'create'])->name('admin.pages.createnews');
 Route::post('/pages/addnews' , [NewsController::class, 'addnews'])-> name('admin.pages.addnews');
+Route::get('/pages/Deletenews/{news_id}',[NewsController::class, 'newsdelete'])->name('admin.pages.deletenews');
+Route::get('/pages/Editnews/{news_id}', [NewsController::class, 'newsEdit'])->name('admin.pages.editnews');
+Route::patch('/pages/Editnewslist/{news_id}', [NewsController::class, 'editNewsList'])->name('admin.pages.editnewslist');
+
 });

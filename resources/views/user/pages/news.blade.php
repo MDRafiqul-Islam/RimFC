@@ -44,10 +44,10 @@
     @foreach($news as $news)
     <div class="playersec">
     <div class="img">
-        <a href="#"><img  src="{{asset('storage/news/'.$news->photo)}}" alt="Item 1"></a>
+        <a href="{{ route('user.pages.newsDetails', $news->id) }}"><img  src="{{asset('storage/news/'.$news->photo)}}" alt="Item 1"></a>
     </div>
     <div class="info">
-        <a href="#"><h4>{{ $news->headline }}</h4></a>
+        <a href="{{ route('user.pages.newsDetails', $news->id) }}"><h4>{{ $news->headline }}</h4></a>
     </div>
    </div>
 @endforeach

@@ -26,9 +26,10 @@ class UserHomeController extends Controller
         return view('user.pages.news',compact('news'));
     }
 
-    public function shownewsdetailes()
+    public function shownewsdetailes($news_id)
     {
-        $news= News::all();
+        $news= News::find($news_id);
         return view('user.pages.newsDetails',compact('news'));
     }
+
 }
