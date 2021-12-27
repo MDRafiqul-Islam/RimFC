@@ -22,7 +22,7 @@
   }
 
   .img img{
-    width: 256px;
+    width: 300px;
     height: 200px;
   }
   .info{
