@@ -21,8 +21,8 @@
                 <li class="nav__item"><a href="#">Gallary</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
-                    <a href="#">Fixture</a>
-                    <a href="#">Results</a>
+                    <a href="{{ route('admin.pages.fixture') }}">Fixture</a>
+                    <a href="{{ route('admin.pages.result') }}">Results</a>
                     <a href="#">Point Tables</a>
                     <a href="#">Player Stats</a>
                     <a href="#">Match Player</a>

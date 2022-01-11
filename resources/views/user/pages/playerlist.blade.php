@@ -71,7 +71,7 @@ h2{
     @if ( value($player->position) == 'CF'||value($player->position) == 'RWF'|| value($player->position) == 'LWF'||value($player->position) == 'SS')
     <div class="playersec">
     <div class="img">
-        <a href="#"><img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1"></a>
+      <a href="#"><img  src="{{asset('storage/players/'.$player->photo)}}" alt="Item 1"></a>
     </div>
     <div class="info">
             <h4>{{ $player->jersy_no }}</h4><br>

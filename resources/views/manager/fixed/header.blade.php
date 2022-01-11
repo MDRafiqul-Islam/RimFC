@@ -2,7 +2,7 @@
       <div class="site-header__top">
         <div class="wrapper site-header__wrapper">
           <div class="site-header__middle">
-          <a href="#"><img class="logo" src="{{url('images/RIMFC.jpg')}}" ></a>
+          <a href="#"><img class="logo" src="{{url('RIMFC.jpg')}}" ></a>
           </div>
           <div class="site-header__end top">
             <a href="#">Login</a>
@@ -20,18 +20,18 @@
                 <li class="nav__item"><a href="#">News</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
-                    <a href="#">Fixture</a>
+                    <a href="{{ route('manager.pages.fixture') }}">Fixture</a>
                     <a href="#">Results</a>
                     <a href="#">Point Tables</a>
                   </div>
                 </li>
-                <li class="nav__item"><a href="#">Players</a></li>
+                <li class="nav__item"><a href="{{ route('manager.pages.playerslist') }}">Players</a></li>
                 <li class="nav__item">Match
                   <div class="dropdown-content">
                     <a href="#">Available player</a>
-                    <a href="#">Position</a>
+                    <a href="{{ route('manager.pages.position') }}">Position</a>
                     <a href="#">Match Player</a>
-                    <a href="#">Match Note</a>    
+                    <a href="#">Match Note</a>
                   </div>
                 </li>
                 <li class="nav__item"><a href="#">Training</a></li>
