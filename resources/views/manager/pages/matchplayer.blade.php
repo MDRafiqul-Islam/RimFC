@@ -25,7 +25,7 @@
 </div>
 <br>
 @foreach ($matchplayer as $matchplayer)
-<h1>{{ $matchplayer->player->position }}</h1>
+<h1>{{ $matchplayer->position }}</h1>
 <div class="img">
     <img  src="{{asset('storage/players/'.$matchplayer->player->photo)}}" alt="Item 1">
 </div>

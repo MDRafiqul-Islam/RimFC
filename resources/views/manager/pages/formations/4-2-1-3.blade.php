@@ -51,7 +51,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -59,7 +59,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -67,7 +67,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
     </table>
@@ -78,7 +78,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -86,7 +86,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -94,7 +94,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
     </table>
@@ -105,7 +105,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -113,7 +113,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -121,7 +121,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -129,7 +129,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
     </table>
@@ -140,7 +140,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
     </table>
@@ -151,7 +151,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -159,7 +159,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -167,7 +167,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -175,7 +175,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
         <tr height="15%;">
@@ -183,7 +183,7 @@ h1{
         <td><input type="hidden" name="date[]" value="{{$fixture->date}}"></td>
         <td><input type="hidden" name="formation[]" value="4-2-1-3.jpg"></td>
         <td><select name="name[]"><option>Select Player</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->name}}</option>@endforeach</select></td>
-        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->id}}">{{$player->position}}</option>@endforeach</select></td>
+        <td><select name="position[]"><option>Select position</option>@foreach ($players as $key=>$player)<option value="{{$player->position}}">{{$player->position}}</option>@endforeach</select></td>
         <td><select name="status[]"><option value="main">Match Player</option><option value="extra">Extra Player</option></td>
         </tr>
     </table>
