@@ -30,7 +30,7 @@
                   <div class="dropdown-content">
                     <a href="#">Available player</a>
                     <a href="{{ route('manager.pages.position') }}">Position</a>
-                    <a href="#">Match Player</a>
+                    <a href="{{ route('manager.pages.matchplayer') }}">Match Player</a>
                     <a href="#">Match Note</a>
                   </div>
                 </li>

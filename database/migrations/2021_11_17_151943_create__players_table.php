@@ -21,6 +21,8 @@ class CreatePlayersTable extends Migration
             $table->string('position',3);
             $table->double('age');
             $table->string('foot',2);
+            $table->double('salary');
+            $table->string('available');
             $table->timestamps();
         });
     }

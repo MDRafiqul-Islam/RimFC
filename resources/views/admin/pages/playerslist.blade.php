@@ -1,13 +1,36 @@
 @extends('admin.welcome')
 
 @section('content')
-
+<style>
+.salary{
+  padding: 10px;
+  height: 110px;
+  width: 25%;
+  background-color: whitesmoke;
+  margin-left: 72.5%;
+}
+h1{
+    color: black;
+    font-size: 20px;
+}
+</style>
 <br>
 @if(session()->has('success'))
     <p class="alert-success">
         {{session()->get('success')}}
     </p>
+@elseif (session()->has('error'))
+<p class="alert-error">
+    {{session()->get('error')}}
+</p>
 @endif
+<br>
+
+<div class="salary">
+<h1>Total Ammount = € {{$Total_salary}} m </h1><br>
+<h1>Players Salary = € {{$player_salary}} m</h1><br>
+<h1>Remaining Ammount = € {{$remain_salary}} m</h1>
+</div>
 <br>
 <table id="players">
   <tr>
@@ -17,6 +40,8 @@
     <th>position</th>
     <th>Age</th>
     <th>Foot</th>
+    <th>Salary</th>
+    <th>Availability</th>
     <th></th>
   </tr>
   @foreach ($players as $key=>$player)
@@ -25,11 +50,13 @@
         <img style="border-radius: 50%; " width="100px;" src=" {{asset('storage/players/'.$player->photo)}}" alt="players">
 
     </td>
-    <td width="14%">{{$player->jersy_no}}</td>
-    <td width="19%">{{$player->name}}</td>
-    <td width="16%">{{$player->position}}</td>
-    <td width="16%">{{$player->age}}</td>
-    <td width="16%">{{$player->foot}}</td>
+    <td width="8%">{{$player->jersy_no}}</td>
+    <td width="17%">{{$player->name}}</td>
+    <td width="12%">{{$player->position}}</td>
+    <td width="12%">{{$player->age}}</td>
+    <td width="12%">{{$player->foot}}</td>
+    <td width="12%">{{$player->salary}}</td>
+    <td width="12%">{{$player->available}}</td>
     <td>
 
             <a href="{{route('admin.pages.editplayers', $player->id )}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">

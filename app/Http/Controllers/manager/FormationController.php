@@ -70,18 +70,18 @@ class FormationController extends Controller
         $fixture_id = $request->fixture_id;
         $date = $request->date;
         $formation = $request->formation;
-        $name = $request->name;
+        $player_id = $request->name;
         $position = $request->position;
         $status = $request->status;
 
-        for($i=0;$i<count($name);$i++){
+        for($i=0;$i<count($player_id);$i++){
             Formation::create([
                 'fixture_id' =>$fixture_id[$i],
                 'date' =>$date[$i],
                 'formation' =>$formation[$i],
-                'name' =>$name[$i],
+                'player_id' =>$player_id[$i],
                 'position' =>$position[$i],
-                'status' => $status[$i]
+                'status' => $status[$i],
             ]);
         }
         return redirect()->back()->with('success','Player Created Successfully.');
@@ -89,7 +89,16 @@ class FormationController extends Controller
 
     public function showPosition()
     {
-        $position = Formation::all();
-        return view('manager.pages.position', compact('position'));
+        $positions = Formation::all();
+        foreach ($positions as $position) {
+        $photo = $position->formation;
+        }
+        return view('manager.pages.position', compact('photo'));
+    }
+
+    public function matchPlayer()
+    {
+        $matchplayer = Formation::with('player')->get();
+        return view('manager.pages.matchplayer', compact('matchplayer'));
     }
 }

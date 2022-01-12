@@ -46,6 +46,22 @@
         <input type="text" id="foot" name="foot"value="{{$data['foot']}}">
       </div>
     </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="foot">Salary</label>
+      </div>
+      <div class="col-75">
+        <input type="number" id="age" name="salary"value="{{$data['salary']}}">
+      </div>
+    </div>
+     <div class="row">
+      <div class="col-25">
+        <label for="foot">Availability</label>
+      </div>
+      <div class="col-75">
+        <input type="text" id="foot" name="available"value="{{$data['available']}}">
+      </div>
+    </div>
     <div class="row">
       <div class="col-25">
         <label for="name">Photo</label>

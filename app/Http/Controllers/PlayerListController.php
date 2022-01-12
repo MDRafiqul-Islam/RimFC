@@ -10,8 +10,15 @@ class PlayerListController extends Controller
 {
     public function playerList()
     {
+        $Total_salary = 5000;
+        $player_salary=0;
+        $remain_salary= $Total_salary;
         $players= Player::all();
-        return view('admin.pages.playerslist',compact('players'));
+        foreach ($players as $key => $player) {
+            $player_salary+= $player->salary;
+            $remain_salary-=$player_salary;
+        }
+        return view('admin.pages.playerslist',compact('players','Total_salary','player_salary','remain_salary'));
     }
 
 
@@ -24,6 +31,15 @@ class PlayerListController extends Controller
 
     public function addplayer(Request $request)
     {
+        $Total_salary = 5000;
+        $player_salary=0;
+        $remain_salary= $Total_salary;
+        $players= Player::all();
+        foreach ($players as $key => $player) {
+            $player_salary+= $player->salary;
+            $remain_salary-=$player_salary;
+        }
+        if($player_salary<= $Total_salary){
         $image_name=null;
         //dd($request->all());
         if($request->hasFile('photo'))
@@ -38,9 +54,17 @@ class PlayerListController extends Controller
             'position'=>$request->position,
             'age'=>$request->age,
             'foot'=>$request->foot,
+            'salary'=>$request->salary,
+            'available'=>$request->available,
             'photo'=> $image_name,
         ]);
-        return redirect()->back()->with('success','Player Created Successfully.');
+        return redirect()->route('admin.pages.playerslist')->with('success','Player Created Successfully.');
+        }
+
+        else
+        {
+            return redirect()->route('admin.pages.playerslist')->with('error','Salary Limit Has Been Executed');
+        }
     }
 
 
@@ -80,6 +104,8 @@ class PlayerListController extends Controller
         $data->position=$request->input('position');
         $data->age=$request->input('age');
         $data->foot=$request->input('foot');
+        $data->salary=$request->input('salary');
+        $data->available=$request->input('available');
         $data->update();
         return redirect()->route('admin.pages.playerslist')->with('success','Player Edited.');
     }

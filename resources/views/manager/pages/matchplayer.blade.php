@@ -1,5 +1,6 @@
 @extends('manager.welcome')
 @section('content')
+
 <style>
     .contain{
         width: 100%;
@@ -14,15 +15,19 @@
     }
     .img img{
     margin-left: 22%;
-    width: 720px;
-    height: 720px;
+    width: 56px;
+    height: 56px;
   }
 </style>
+
 <div class="contain">
     <h1>Playing Position</h1>
 </div>
 <br>
+@foreach ($matchplayer as $matchplayer)
+<h1>{{ $matchplayer->player->position }}</h1>
 <div class="img">
-    <img  src="{{asset('storage/formation/'.$photo)}}" alt="Item 1">
+    <img  src="{{asset('storage/players/'.$matchplayer->player->photo)}}" alt="Item 1">
 </div>
+@endforeach
 @endsection
