@@ -9,14 +9,15 @@
 @endif
 <div class="container">
 
-    <form action="{{ route('admin.pages.addfixture') }}" method="POST" enctype="multipart/form-data">
-    @csrf
+    <form action="{{route('admin.pages.editfixturelist',$data->id)}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PATCH')
     <div class="row">
       <div class="col-25">
         <label for="date" id="date">Date</label>
       </div>
       <div class="col-75">
-        <input type="date" id="date" name="date" placeholder="Date">
+        <input type="date" id="date" name="date" value="{{$data['date']}}">
       </div>
     </div>
     <div class="row">
@@ -24,7 +25,7 @@
         <label for="time">Time</label>
       </div>
       <div class="col-75">
-        <input type="time" id="time" name="time" placeholder="Time">
+        <input type="time" id="time" name="time" value="{{$data['time']}}">
       </div>
     </div>
     <div class="row">
@@ -33,6 +34,7 @@
       </div>
       <div class="col-75">
         <select type="text" id="age" name="opponent" >
+            <option value="{{$data['opponent']}}">{{$data['opponent']}}</option>
             <option value="mancity">Man City</option>
             <option value="liverpool">Liverpool</option>
             <option value="chelsea">Chelsea</option>
@@ -50,6 +52,7 @@
         </div>
         <div class="col-75">
           <select type="text" id="age" name="venu">
+            <option value="{{$data['venu']}}">{{$data['venu']}}</option>
             <option value="home">Home</option>
             <option value="away">Away</option>
           </select>
@@ -63,6 +66,7 @@
         <input type="file" id="photo" name="photo" placeholder="Photo..">
       </div>
     </div>
+
     <br>
     <div class="row">
       <input type="submit" value="Submit">

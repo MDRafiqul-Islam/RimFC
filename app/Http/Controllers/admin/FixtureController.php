@@ -6,6 +6,7 @@ use App\Models\Fixture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class FixtureController extends Controller
 {
@@ -39,4 +40,43 @@ class FixtureController extends Controller
         return redirect()->back()->with('success','Fixture Created Successfully.');
 
     }
+    public function fixturedelete($fixture_id)
+    {
+        Fixture::find($fixture_id)->delete();
+        return redirect()->back()->with('success','Fixture Deleted.');
+    }
+
+    public function fixtureEdit($fixture_id)
+    {
+        $data = Fixture::find($fixture_id);
+        return view('admin.pages.editfixture', compact('data'));
+
+    }
+
+
+    public function editFixtureList(Request $request, $fixture_id)
+    {
+        $data = Fixture::find($fixture_id);
+        if($request->hasFile('photo'))
+        {
+            $path='storage/fixture/'.$data->photo;
+            if(File::exists($path))
+            {
+                File::delete($path);
+            }
+            $image_name=date('Ymdhis') .'.'. $request->file('photo')->getClientOriginalExtension();
+            $file=$request->file('photo')->storeAs('/fixture',$image_name);
+            $data->photo= $image_name;
+
+
+        }
+        $data->date=$request->input('date');
+        $data->time=$request->input('time');
+        $data->opponent=$request->input('opponent');
+        $data->venu=$request->input('venu');
+        $data->update();
+        return redirect()->route('admin.pages.fixture')->with('success','Fixture Edited.');
+    }
+
 }
+

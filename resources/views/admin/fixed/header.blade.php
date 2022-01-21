@@ -5,7 +5,7 @@
           <a href="{{url('/')}}"><img class="logo" src="{{url('RIMFC.jpg')}}" ></a>
           </div>
           <div class="site-header__end top">
-            <a href="{{ route('admin.logout') }}">Logout</a>
+            <a href="{{ route('user.logout') }}">Logout</a>
           </div>
         </div>
       </div>
@@ -23,20 +23,21 @@
                 <div class="dropdown-content">
                     <a href="{{ route('admin.pages.fixture') }}">Fixture</a>
                     <a href="{{ route('admin.pages.result') }}">Results</a>
-                    <a href="#">Point Tables</a>
-                    <a href="#">Player Stats</a>
-                    <a href="#">Match Player</a>
-                    <a href="#">Match Note</a>
                   </div>
                 </li>
-                <li class="nav__item"><a href="{{route('admin.pages.playerslist')}}">Players</a></li>
+                <li class="nav__item">Players
+                <div class="dropdown-content">
+                <a href="{{route('admin.pages.playerslist')}}">Players</a>
+                <a href="{{ route('admin.pages.playerstatelist') }}">Player Stats</a>
+                <a href="#">Match Player</a>
+                </div>
+                </li>
                 <li class="nav__item"><a href="#">Ticket</a></li>
-                <li class="nav__item"><a href="#">Museum</a></li>
+                <li class="nav__item"><a href="{{ route('admin.pages.massage') }}">Massage</a></li>
                 <li class="nav__item">More
                   <div class="dropdown-content">
-                    <a href="#">Club</a>
-                    <a href="#">Stadium</a>
-                    <a href="#">Fans</a>
+                    <a href="{{ route('admin.pages.venu') }}">Stadium</a>
+                    <a href="{{ route('admin.pages.manageuser') }}">User</a>
                     <a href="#">Partner</a>
                   </div>
                 </li>

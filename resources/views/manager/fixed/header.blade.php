@@ -5,7 +5,7 @@
           <a href="#"><img class="logo" src="{{url('RIMFC.jpg')}}" ></a>
           </div>
           <div class="site-header__end top">
-            <a href="#">Login</a>
+            <a href="{{ route('user.logout') }}">Logout</a>
           </div>
         </div>
       </div>
@@ -28,13 +28,13 @@
                 <li class="nav__item"><a href="{{ route('manager.pages.playerslist') }}">Players</a></li>
                 <li class="nav__item">Match
                   <div class="dropdown-content">
-                    <a href="#">Available player</a>
+                    <a href="{{ route('manager.pages.massage') }}">Massage</a>
                     <a href="{{ route('manager.pages.position') }}">Position</a>
                     <a href="{{ route('manager.pages.matchplayer') }}">Match Player</a>
                     <a href="#">Match Note</a>
                   </div>
                 </li>
-                <li class="nav__item"><a href="#">Training</a></li>
+                <li class="nav__item"><a href="{{ route('manager.pages.trainingtype') }}">Training</a></li>
               </ul>
             </nav>
           </div>

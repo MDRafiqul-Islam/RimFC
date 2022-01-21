@@ -1,0 +1,63 @@
+<?php
+
+namespace App\Http\Controllers\user;
+
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
+class UserController extends Controller
+{
+    public function dologin()
+    {
+        return view('user.login');
+    }
+
+    public function doregistration()
+    {
+        return view('user.registration');
+    }
+    public function registration(Request $request)
+    {
+        User::create([
+            'name'=>$request->name,
+            'email'=>$request->email,
+            'password'=>bcrypt($request->password),
+            'mobile'=>$request->mobile,
+        ]);
+
+        return redirect()->route('user.login')->with('message','Registration successful.');
+
+
+    }
+
+    public function login(Request $request)
+    {
+
+        $userInfo=$request->except('_token');
+        if(Auth::attempt($userInfo)){
+            if(Auth::user()->role == 'admin')
+            {
+                return redirect('admin/')->with('message','Login successful.');
+            }
+            else if(Auth::user()->role == 'manager')
+            {
+                return redirect('manager/')->with('message','Login successful.');
+            }
+            else
+            {
+                return redirect('/')->with('message','Login successful.');
+            }
+
+        }
+        return redirect()->back()->with('error','Invalid user credentials');
+
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('user.dologin')->with('message','Logging out.');
+    }
+}

@@ -97,7 +97,6 @@ class PlayerListController extends Controller
             $file=$request->file('photo')->storeAs('/players',$image_name);
             $data->photo= $image_name;
 
-
         }
         $data->jersy_no= $request->input('jersyno');
         $data->name=$request->input('name');

@@ -5,7 +5,12 @@
           <a href="#"><img class="logo" src="{{url('RIMFC.jpg')}}" ></a>
           </div>
           <div class="site-header__end top">
-            <a href="#">Login</a>
+            @if(auth()->user())
+            <a href="{{route('user.logout')}}">Logout</a>
+            <a href="#">{{auth()->user()->name}}</a>
+            @else
+            <a href="{{route('user.dologin')}}">Login</a>
+            @endif
           </div>
         </div>
       </div>
@@ -18,7 +23,7 @@
               </button>
               <ul class="nav__wrapper">
                 <li class="nav__item"><a href="{{ route('user.pages.news') }}">News</a></li>
-                <li class="nav__item"><a href="#">Video</a></li>
+                <li class="nav__item"><a href="{{ route('user.pages.massage') }}">Massage</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
                     <a href="#">Fixture</a>

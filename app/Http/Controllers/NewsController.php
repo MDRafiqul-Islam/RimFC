@@ -54,7 +54,7 @@ class NewsController extends Controller
         $data = News::find($news_id);
         if($request->hasFile('photo'))
         {
-            $path='storage/players/'.$data->photo;
+            $path='storage/news/'.$data->photo;
             if(File::exists($path))
             {
                 File::delete($path);
