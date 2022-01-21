@@ -28,17 +28,13 @@
                 <div class="dropdown-content">
                     <a href="#">Fixture</a>
                     <a href="#">Results</a>
-                    <a href="#">Point Tables</a>
                   </div>
                 </li>
                 <li class="nav__item"><a href="{{ route('user.pages.playerslist') }}">Players</a></li>
-                <li class="nav__item"><a href="#">Ticket</a></li>
-                <li class="nav__item"><a href="#">Museum</a></li>
+                <li class="nav__item"><a href="{{ route('user.pages.showticket') }}">Ticket</a></li>
                 <li class="nav__item">More
                   <div class="dropdown-content">
-                    <a href="#">Club</a>
                     <a href="#">Stadium</a>
-                    <a href="#">Fans</a>
                     <a href="#">Partner</a>
                   </div>
                 </li>

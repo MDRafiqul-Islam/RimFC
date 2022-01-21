@@ -22,7 +22,6 @@ h2{
     font-size: 35px;
     padding-left: 120px;
     font-family: "Times New Roman", Georgia, serif;
-
   }
   .playersec{
     padding: 2%;

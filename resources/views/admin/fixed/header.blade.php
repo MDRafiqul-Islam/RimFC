@@ -32,7 +32,7 @@
                 <a href="#">Match Player</a>
                 </div>
                 </li>
-                <li class="nav__item"><a href="#">Ticket</a></li>
+                <li class="nav__item"><a href="{{ route('admin.pages.showticket') }}">Ticket</a></li>
                 <li class="nav__item"><a href="{{ route('admin.pages.massage') }}">Massage</a></li>
                 <li class="nav__item">More
                   <div class="dropdown-content">

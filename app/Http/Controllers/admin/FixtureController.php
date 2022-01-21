@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Result;
+use App\Models\Ticket;
 use App\Models\Fixture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,7 +15,9 @@ class FixtureController extends Controller
     public function showFixture()
     {
         $fixture=Fixture::all();
-        return view('admin.pages.fixture',compact('fixture'));
+        $result=Result::all();
+        $ticket=Ticket::all();
+        return view('admin.pages.fixture',compact('fixture','result','ticket'));
     }
 
     public function createFixture()

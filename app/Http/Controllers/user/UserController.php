@@ -27,7 +27,7 @@ class UserController extends Controller
             'mobile'=>$request->mobile,
         ]);
 
-        return redirect()->route('user.login')->with('message','Registration successful.');
+        return redirect()->route('user.dologin')->with('message','Registration successful.');
 
 
     }
@@ -37,6 +37,12 @@ class UserController extends Controller
 
         $userInfo=$request->except('_token');
         if(Auth::attempt($userInfo)){
+
+            if (Auth::user()->status=='block') {
+                auth()->logout(Auth::user());
+                return redirect()->back()->with('message', 'Sorry, You are blocked 😭');
+            }
+
             if(Auth::user()->role == 'admin')
             {
                 return redirect('admin/')->with('message','Login successful.');
@@ -59,5 +65,13 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('user.dologin')->with('message','Logging out.');
+    }
+
+
+    public function block($id, Request $req)
+    {
+        $user = User::where('id',$id);
+        $user->update(['status'=>request('status')]);
+        return redirect()->back();
     }
 }

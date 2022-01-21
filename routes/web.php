@@ -16,6 +16,7 @@ use App\Http\Controllers\manager\FormationController;
 use App\Http\Controllers\manager\TrainingTypeController;
 use App\Http\Controllers\manager\Fixturecontroller as ManagerFixtureController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\TicketController;
 use GuzzleHttp\Psr7\Message;
 
 /*
@@ -55,6 +56,12 @@ Route::group(['prefix'=>'user'],function (){
 Route::get('/pages/massage',[MessageController::class, 'usermassage'])->name('user.pages.massage')->middleware('auth');
 Route::post('/pages/createmassage/{user_id}',[MessageController::class, 'usercreatemassage'])->name('user.pages.createmassage')->middleware('auth');
 Route::get('/pages/massagelist/{user_id}',[MessageController::class, 'usermassagelist'])->name('user.pages.massagelist')->middleware('auth');
+
+//Ticket
+Route::get('/pages/showticket',[TicketController::class, 'showTicketUser'])->name('user.pages.showticket');
+Route::get('/pages/buyticket/{ticket_id}',[TicketController::class, 'buyTicket'])->name('user.pages.buyticket')->middleware('auth');
+Route::post('/pages/cartticket/{ticket_id}',[TicketController::class, 'cart'])->name('user.pages.cartticket')->middleware('auth');
+Route::post('/pages/confirmcart',[TicketController::class, 'confirmcart'])->name('user.pages.confirmcart')->middleware('auth');
 
 });
 
@@ -164,6 +171,12 @@ Route::get('/pages/result',[ResultController::class, 'showResult'])->name('admin
 
 //manage
 Route::get('/pages/user',[ManageController::class, 'showUser'])->name('admin.pages.manageuser');
+Route::patch('pages/block/{id}', [UserController::class, 'block'])->name('admin.pages.block');
 
+
+//ticket
+Route::get('/pages/createticket/{fixture_id}',[TicketController::class, 'createTicket'])->name('admin.pages.createticket');
+Route::post('/pages/addticket',[TicketController::class, 'addTicket'])->name('admin.pages.addticket');
+Route::get('/pages/showticket',[TicketController::class, 'showTicket'])->name('admin.pages.showticket');
 
 });
