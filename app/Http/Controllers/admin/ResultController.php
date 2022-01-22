@@ -32,6 +32,10 @@ class ResultController extends Controller
             'fixture_id'=>$request->fixture_id,
             'status'=>$request->status,
         ]);
+        $data= Fixture::find($request->fixture_id);
+        $data->update([
+            'resultstatus'=>'1'
+        ]);
         return redirect()->route('admin.pages.result')->with('success','Result Added.');
     }
 }

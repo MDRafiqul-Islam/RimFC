@@ -1,6 +1,10 @@
 @extends('admin.welcome')
 @section('content')
-
+@if(session()->has('success'))
+    <p class="alert-success">
+        {{session()->get('success')}}
+    </p>
+@endif
 <br>
 <table id="players">
     <tr>

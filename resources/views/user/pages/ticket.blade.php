@@ -1,6 +1,11 @@
 @extends('user.welcome')
 @section('content')
 <br>
+@if(session()->has('error'))
+    <p class="alert-error">
+        {{session()->get('error')}}
+    </p>
+@endif
 @if(session()->has('success'))
     <p class="alert-success">
         {{session()->get('success')}}

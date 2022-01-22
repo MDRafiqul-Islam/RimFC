@@ -29,6 +29,7 @@
                 <div class="dropdown-content">
                 <a href="{{route('admin.pages.playerslist')}}">Players</a>
                 <a href="{{ route('admin.pages.playerstatelist') }}">Player Stats</a>
+                <a href="{{ route('admin.pages.trainingstatus') }}">Training Stats</a>
                 <a href="#">Match Player</a>
                 </div>
                 </li>

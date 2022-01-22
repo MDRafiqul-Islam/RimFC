@@ -41,13 +41,12 @@
 </style>
 
 <div class="container">
-@foreach ( $data as $ticket )
-<h1>Ticket For {{ $ticket->date }}</h1>
+<h1>Ticket For {{ $id->date }}</h1>
 <br>
-<h2>Price {{ $ticket->price }} ৳</h2>
+<h2>Price {{ $id->price }} ৳</h2>
 <hr>
 <div class="form">
-<form action="{{ route('user.pages.cartticket',$ticket->id) }}" method="POST">
+<form action="{{ route('user.pages.cartticket',$id->id) }}" method="POST">
     @csrf
   <label for="Quantity">Quantity</label>
   <select type="number" name="quantity" id="age">
@@ -69,8 +68,8 @@
 </select>
 <br>
 <br>
-@endforeach
 <input type="submit" value="proceed" class="button" >
+
 </form>
 </div>
 </div>

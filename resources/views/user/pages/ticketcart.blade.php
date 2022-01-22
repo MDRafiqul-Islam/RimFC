@@ -7,7 +7,7 @@
         height: 250px;
         background-color: lightblue;
         margin-left: 30%;
-        margin-top: 5%;
+        margin-top: 10%;
         margin-bottom: 5%;
     }
     h1{
@@ -51,7 +51,7 @@
 <div class="container">
 <br>
 
-<h3>Fixture ID: {{ $data->fixture_id }} </h3><br>
+
 <h3>Quantity: {{ $data->quantity }} </h3><br>
 <h3>Price: {{  $data->price }} ৳</h3>
 <br>

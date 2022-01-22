@@ -15,9 +15,7 @@ class FixtureController extends Controller
     public function showFixture()
     {
         $fixture=Fixture::all();
-        $result=Result::all();
-        $ticket=Ticket::all();
-        return view('admin.pages.fixture',compact('fixture','result','ticket'));
+        return view('admin.pages.fixture',compact('fixture'));
     }
 
     public function createFixture()

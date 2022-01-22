@@ -17,24 +17,26 @@
                 menu
               </button>
               <ul class="nav__wrapper">
-                <li class="nav__item"><a href="#">News</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
                     <a href="{{ route('manager.pages.fixture') }}">Fixture</a>
                     <a href="#">Results</a>
-                    <a href="#">Point Tables</a>
                   </div>
                 </li>
                 <li class="nav__item"><a href="{{ route('manager.pages.playerslist') }}">Players</a></li>
                 <li class="nav__item">Match
                   <div class="dropdown-content">
-                    <a href="{{ route('manager.pages.massage') }}">Massage</a>
                     <a href="{{ route('manager.pages.position') }}">Position</a>
                     <a href="{{ route('manager.pages.matchplayer') }}">Match Player</a>
-                    <a href="#">Match Note</a>
                   </div>
                 </li>
-                <li class="nav__item"><a href="{{ route('manager.pages.trainingtype') }}">Training</a></li>
+                <li class="nav__item">Training
+                    <div class="dropdown-content">
+                    <a href="{{ route('manager.pages.trainingtype') }}">Training</a>
+                    <a href="{{ route('manager.pages.trainingstatus') }}">Player Status</a>
+                </div>
+              </li>
+              <li class="nav__item"><a href="{{ route('manager.pages.massage') }}">Massage</a></li>
               </ul>
             </nav>
           </div>

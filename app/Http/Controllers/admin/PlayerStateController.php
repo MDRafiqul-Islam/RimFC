@@ -34,8 +34,8 @@ class PlayerStateController extends Controller
         $save = $request->save;
 
         for($i=0;$i<count($name);$i++){
-            $players[$i]= State::select('player_id')->value('player_id');
-        if($players[$i]!= $name[$i])
+        $players= State::select('player_id')->value('player_id');
+        if($players!= $name[$i])
         {
             State::create([
                         'player_id' =>$name[$i],
@@ -50,7 +50,7 @@ class PlayerStateController extends Controller
                     ]);
         }
 
-        else if($players[$i]== $name[$i]){
+        else if($players== $name[$i]){
             $min1= State::select('min')->value('min');
             $tracle1= State::select('tracle')->value('tracle');
             $clear1= State::select('clear')->value('clear');

@@ -101,7 +101,9 @@ Route::get('/pages/position',[FormationController::class, 'showPosition'])->name
 
 //training
 Route::get('/pages/trainingtype',[TrainingTypeController::class, 'trainingtypelist'])->name('manager.pages.trainingtype');
-
+Route::get('/pages/trainingstatus',[TrainingTypeController::class, 'trainingstatus'])->name('manager.pages.trainingstatus');
+Route::get('/pages/editstatus/{id}',[TrainingTypeController::class, 'editstatmanager'])->name('manager.pages.editstatus');
+Route::patch('/pages/editstatuslist/{id}', [TrainingTypeController::class, 'editstateListmanager'])->name('manager.pages.editstatuslist');
 
 
 });
@@ -178,5 +180,12 @@ Route::patch('pages/block/{id}', [UserController::class, 'block'])->name('admin.
 Route::get('/pages/createticket/{fixture_id}',[TicketController::class, 'createTicket'])->name('admin.pages.createticket');
 Route::post('/pages/addticket',[TicketController::class, 'addTicket'])->name('admin.pages.addticket');
 Route::get('/pages/showticket',[TicketController::class, 'showTicket'])->name('admin.pages.showticket');
+
+
+//training
+Route::get('/pages/trainingstatus',[TrainingTypeController::class, 'admintrainingstatus'])->name('admin.pages.trainingstatus');
+Route::get('/pages/editstatus/{id}',[TrainingTypeController::class, 'editstat'])->name('admin.pages.editstatus');
+Route::patch('/pages/editstatuslist/{id}', [TrainingTypeController::class, 'editstateList'])->name('admin.pages.editstatuslist');
+
 
 });

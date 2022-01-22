@@ -26,7 +26,11 @@ class TicketController extends Controller
             'ticket'=>$request->ticket,
             'price'=>$request->price,
         ]);
-        return redirect()->back()->with('success','Result Added.');
+        $data= Fixture::find($request->fixture_id);
+        $data->update([
+            'ticketstatus'=>'1'
+        ]);
+        return redirect()->route('admin.pages.showticket')->with('success','Ticket Added.');
     }
     public function showTicket()
     {
@@ -42,15 +46,17 @@ class TicketController extends Controller
     public function buyTicket($ticket_id)
     {
         $id=Ticket::find($ticket_id);
-        $data=Ticket::all();
-        return view('user.pages.buyticket',compact('data','id'));
+        // dd($id);
+        return view('user.pages.buyticket',compact('id'));
     }
     public function cart(Request $request, $ticket_id)
     {
         $id=Ticket::find($ticket_id);
+        $confirm= Purchased::where('user_id', Auth::user()->id)->where('fixture_id', $id->fixture_id)->exists();
         $data=Ticket::all();
         $quantity= $request->quantity;
         $total=$quantity*$id->price;
+        if(!$confirm){
         Purchased::create([
             'fixture_id'=>$id->fixture_id,
             'user_id'=>Auth::user()->id,
@@ -60,6 +66,8 @@ class TicketController extends Controller
         ]);
         $data= Purchased::where('user_id',Auth::user()->id)->first();
         return view('user.pages.ticketcart',compact('data'));
+       }
+       return redirect()->route('user.pages.showticket')->with('error','You can not buy anymore ticket for this match');
     }
 
     public function confirmcart(Request $request)
@@ -67,10 +75,9 @@ class TicketController extends Controller
 
         $data= Purchased::where('user_id',Auth::user()->id)->first();
         $data->update([
-            // field name from db || field name from form
             'status'=>'confirm'
         ]);
-
+        return redirect()->route('user.pages.showticket')->with('success','Your Ticket is confirm');
     }
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use App\Models\PlayerTraining;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -35,6 +36,8 @@ class PlayerListController extends Controller
         $player_salary=0;
         $remain_salary= $Total_salary;
         $players= Player::all();
+        $player_name = $request->name;
+        $player_position = $request->position;
         foreach ($players as $key => $player) {
             $player_salary+= $player->salary;
             $remain_salary-=$player_salary;
@@ -58,6 +61,12 @@ class PlayerListController extends Controller
             'available'=>$request->available,
             'photo'=> $image_name,
         ]);
+        $player_id=Player::orderBy('id','desc')->value('id');
+        PlayerTraining::create([
+            'player_id'=>$player_id,
+            'player_name'=>$player_name,
+            'player_position'=>$player_position,
+        ]);
         return redirect()->route('admin.pages.playerslist')->with('success','Player Created Successfully.');
         }
 
@@ -71,6 +80,7 @@ class PlayerListController extends Controller
     public function playerDelete($player_id)
     {
        Player::find($player_id)->delete();
+       PlayerTraining::find($player_id)->delete();
        return redirect()->back()->with('success','Player Deleted.');
     }
 
