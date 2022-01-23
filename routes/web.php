@@ -202,7 +202,8 @@ Route::get('/pages/showGalleryCategory',[GalleryController::class, 'showGalleryC
 Route::get('/pages/createGalleryCategory',[GalleryController::class, 'createGalleryCategory'])->name('admin.pages.createGalleryCategory');
 Route::post('/pages/createCategory',[GalleryController::class, 'createCategory'])->name('admin.pages.createCategory');
 Route::get('/pages/showGallery',[GalleryController::class, 'showGallery'])->name('admin.pages.showGallery');
-Route::get('/pages/createGallery',[GalleryController::class, 'createGallery'])->name('admin.pages.createGallery');
+Route::get('/pages/createGalleryplayer/{player_id}',[GalleryController::class, 'createGalleryplayer'])->name('admin.pages.createGalleryplayer');
+Route::post('/pages/addGalleryplayer',[GalleryController::class, 'addGalleryplayer'])->name('admin.pages.addGalleryplayer');
 
 
 
