@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResultsTable extends Migration
+class CreateSponsorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateResultsTable extends Migration
      */
     public function up()
     {
-        Schema::create('results', function (Blueprint $table) {
+        Schema::create('sponsors', function (Blueprint $table) {
             $table->id();
-            $table->integer('fixture_id');
             $table->date('date');
-            $table->string('myteam');
-            $table->integer('mygoal');
-            $table->string('opponent');
-            $table->integer('opponentgoal');
+            $table->string('name');
+            $table->double('ammount');
             $table->string('photo');
+            $table->string('link');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class CreateResultsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('results');
+        Schema::dropIfExists('sponsors');
     }
 }

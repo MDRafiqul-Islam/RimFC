@@ -24,7 +24,7 @@ select {
     <select name="name[]" style="width: 200px;">><option value="{{$playerstate->player->id}}">{{$playerstate->player->name}}</option></select>
   </td>
   <td >
-      <input type="text"  name="position[]" value="{{ $playerstate->position}}" style="width: 100px;">
+      <input type="text"  name="position[]" value="{{ $playerstate->position}}" style="width: 100px;" >
   </td>
   <td >
       <input type="number"  name="min[]" placeholder="Minutes Played" style="width: 100px;">

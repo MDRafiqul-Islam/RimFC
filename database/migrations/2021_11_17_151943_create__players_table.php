@@ -22,7 +22,7 @@ class CreatePlayersTable extends Migration
             $table->double('age');
             $table->string('foot',2);
             $table->double('salary');
-            $table->string('available');
+            $table->string('available')->default('yes');
             $table->timestamps();
         });
     }

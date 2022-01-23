@@ -27,7 +27,7 @@ class UserController extends Controller
             'mobile'=>$request->mobile,
         ]);
 
-        return redirect()->route('user.dologin')->with('message','Registration successful.');
+        return redirect()->route('user.dologin')->with('success','Registration successful.');
 
 
     }

@@ -56,13 +56,6 @@
         <input type="number" id="age" name="salary" placeholder="Salary">
       </div>
     </div>
-     <div class="row">
-      <div class="col-25">
-        <label for="foot">Availability</label>
-      </div>
-      <div class="col-75">
-        <input type="text" id="foot" name="available" placeholder="Availability">
-      </div>
   <div class="row">
     <div class="col-25">
       <label for="name">Photo</label>

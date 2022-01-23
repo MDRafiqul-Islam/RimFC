@@ -18,9 +18,9 @@ class CreateTicketsTable extends Migration
             $table->integer('fixture_id');
             $table->date('date');
             $table->integer('venu_id');
-            $table->double('ticket');
+            $table->double('ticket')->nullable();
             $table->double('price');
-            $table->double('totalprice')->nullable();
+            $table->double('totalprice')->default(0);
             $table->timestamps();
         });
     }

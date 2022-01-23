@@ -5,7 +5,6 @@
     .col-75{
         margin-left: 30%;
     }
-
 </style>
 <table id="players">
     @foreach ($message  as $massage )

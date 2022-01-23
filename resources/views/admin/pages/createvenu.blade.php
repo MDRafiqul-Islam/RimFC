@@ -27,7 +27,7 @@
         </div>
         <div class="col-75">
         @foreach ($data as $venu)
-          <input type="number" id="age" name="venu_id" value="{{ $venu->id }}">
+          <input type="number" id="age" name="venu_id" value="{{ $venu->id }}" >
         @endforeach
         </div>
       </div>

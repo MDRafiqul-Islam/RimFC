@@ -25,11 +25,11 @@ class UserTableSeeder extends Seeder
 
         User::create(
             [
-                'name'=>'manager',
-                'email'=>'manager@gmail.com',
+                'name'=>'L Roman',
+                'email'=>'roman@gmail.com',
                 'password'=>bcrypt('kichuekta'),
                 'role'=>'manager',
-                'mobile'=>'01836886761',
+                'mobile'=>'01710882198',
             ]
         );
     }

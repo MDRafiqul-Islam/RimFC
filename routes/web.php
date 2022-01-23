@@ -7,10 +7,12 @@ use Illuminate\Routing\Route as RoutingRoute;
 use App\Http\Controllers\PlayerListController;
 use App\Http\Controllers\admin\ResultController;
 use App\Http\Controllers\admin\FixtureController;
+use App\Http\Controllers\admin\GalleryController;
 use App\Http\Controllers\admin\ManageController;
 use App\Http\Controllers\user\UserHomeController;
 use App\Http\Controllers\manager\playercontroller;
 use App\Http\Controllers\admin\PlayerStateController;
+use App\Http\Controllers\admin\SponsorController;
 use App\Http\Controllers\admin\VenuController;
 use App\Http\Controllers\manager\FormationController;
 use App\Http\Controllers\manager\TrainingTypeController;
@@ -186,6 +188,23 @@ Route::get('/pages/showticket',[TicketController::class, 'showTicket'])->name('a
 Route::get('/pages/trainingstatus',[TrainingTypeController::class, 'admintrainingstatus'])->name('admin.pages.trainingstatus');
 Route::get('/pages/editstatus/{id}',[TrainingTypeController::class, 'editstat'])->name('admin.pages.editstatus');
 Route::patch('/pages/editstatuslist/{id}', [TrainingTypeController::class, 'editstateList'])->name('admin.pages.editstatuslist');
+
+//partner
+Route::get('/pages/partnerlist',[SponsorController::class, 'showsponsor'])->name('admin.pages.partnerlist');
+Route::get('/pages/createpartner',[SponsorController::class, 'createsponsor'])->name('admin.pages.createpartner');
+Route::post('/pages/createpartnerlist',[SponsorController::class, 'createsponsorlist'])->name('admin.pages.createpartnerlist');
+Route::get('/pages/Deletesponsor/{sponsor_id}',[SponsorController::class, 'sponsorDelete'])->name('admin.pages.deletesponsor');
+Route::get('/pages/Editsponsor/{sponsor_id}', [SponsorController::class, 'sponsoerEdit'])->name('admin.pages.editsponsor');
+Route::patch('/pages/Editsponsor/{sponsor_id}', [SponsorController::class, 'editSponsorList'])->name('admin.pages.editsponsorlist');
+
+//gallery
+Route::get('/pages/showGalleryCategory',[GalleryController::class, 'showGalleryCategory'])->name('admin.pages.showGalleryCategory');
+Route::get('/pages/createGalleryCategory',[GalleryController::class, 'createGalleryCategory'])->name('admin.pages.createGalleryCategory');
+Route::post('/pages/createCategory',[GalleryController::class, 'createCategory'])->name('admin.pages.createCategory');
+Route::get('/pages/showGallery',[GalleryController::class, 'showGallery'])->name('admin.pages.showGallery');
+Route::get('/pages/createGallery',[GalleryController::class, 'createGallery'])->name('admin.pages.createGallery');
+
+
 
 
 });

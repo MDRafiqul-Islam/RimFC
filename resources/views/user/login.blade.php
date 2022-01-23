@@ -20,6 +20,13 @@
         color: black;
         align-items: top;
     }
+    .success
+    {
+        font-family: 'Lato', sans-serif;
+        color:green;
+        align-items: top;
+        margin-left: 20%;
+    }
     form {
       width: 350px;
       position: relative;
@@ -91,6 +98,11 @@
                 @if(session()->has('message'))
                 <p class="error">
                     {{session()->get('message')}}
+                </p>
+                @endif
+                @if(session()->has('success'))
+                <p class="success">
+                    {{session()->get('success')}}
                 </p>
                 @endif
             </div>

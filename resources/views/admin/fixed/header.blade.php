@@ -18,7 +18,10 @@
               </button>
               <ul class="nav__wrapper">
                 <li class="nav__item"><a href="{{route('admin.pages.news')}}">News</a></li>
-                <li class="nav__item"><a href="#">Gallary</a></li>
+                <li class="nav__item">Gallery
+                    <div class="dropdown-content">
+                    <a href="{{ route('admin.pages.showGallery') }}">Gallary</a>
+                    <a href="{{ route('admin.pages.showGalleryCategory') }}">Gallary category</a>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
                     <a href="{{ route('admin.pages.fixture') }}">Fixture</a>
@@ -39,7 +42,7 @@
                   <div class="dropdown-content">
                     <a href="{{ route('admin.pages.venu') }}">Stadium</a>
                     <a href="{{ route('admin.pages.manageuser') }}">User</a>
-                    <a href="#">Partner</a>
+                    <a href="{{ route('admin.pages.partnerlist') }}">Partner</a>
                   </div>
                 </li>
               </ul>

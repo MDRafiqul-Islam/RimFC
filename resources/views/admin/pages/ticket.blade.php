@@ -1,10 +1,34 @@
 @extends('admin.welcome')
 @section('content')
+<style>
+    .salary{
+      padding: 10px;
+      height: 50px;
+      width: 25%;
+      background-color: whitesmoke;
+      margin-left: 72.5%;
+    }
+    h1{
+        color: black;
+        font-size: 20px;
+    }
+</style>
+<br>
 @if(session()->has('success'))
     <p class="alert-success">
         {{session()->get('success')}}
     </p>
 @endif
+<br>
+<div class="salary">
+    @if($total_income>1000000)
+    <h1>Total Income = € {{$total_income/1000000}} m </h1>
+    @else
+    <h1>Total Income = € {{$total_income}} </h1>
+    <br>
+    @endif
+    </div>
+<br>
 <br>
 <table id="players">
     <tr>

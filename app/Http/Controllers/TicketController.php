@@ -35,7 +35,10 @@ class TicketController extends Controller
     public function showTicket()
     {
         $data=Ticket::all();
-        return view('admin.pages.ticket',compact('data'));
+        foreach ($data as $ticket) {
+            $total_income = $ticket->totalprice;
+        }
+        return view('admin.pages.ticket',compact('data','total_income'));
     }
 
     public function showTicketUser()
@@ -56,6 +59,7 @@ class TicketController extends Controller
         $data=Ticket::all();
         $quantity= $request->quantity;
         $total=$quantity*$id->price;
+        if($id->ticket>=$quantity && $id->ticket>0){
         if(!$confirm){
         Purchased::create([
             'fixture_id'=>$id->fixture_id,
@@ -67,16 +71,33 @@ class TicketController extends Controller
         $data= Purchased::where('user_id',Auth::user()->id)->first();
         return view('user.pages.ticketcart',compact('data'));
        }
+    }
+    else{
+        return redirect()->route('user.pages.showticket')->with('error','Ticket limit has been reached');
+    }
        return redirect()->route('user.pages.showticket')->with('error','You can not buy anymore ticket for this match');
     }
 
     public function confirmcart(Request $request)
     {
-
         $data= Purchased::where('user_id',Auth::user()->id)->first();
+        $ticket_id= $data->ticket_id;
+        $ticket=Ticket::find($ticket_id);
         $data->update([
             'status'=>'confirm'
         ]);
+        if($ticket->ticket - $data->quantity == 0){
+            $ticket->update([
+                'ticket'=> 0,
+                'totalprice'=> $ticket->totalprice + $data->price
+            ]);
+        }
+        else{
+        $ticket->update([
+            'ticket'=> $ticket->ticket - $data->quantity,
+            'totalprice'=> $ticket->totalprice + $data->price
+        ]);
+    }
         return redirect()->route('user.pages.showticket')->with('success','Your Ticket is confirm');
     }
 

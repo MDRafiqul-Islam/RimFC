@@ -10,7 +10,7 @@
           <label for="fixture_id" id="age">Fixture_Id</label>
         </div>
         <div class="col-75">
-          <input type="number" id="jersyno" name="fixture_id" value="{{$data->id}}">
+          <input type="number" id="jersyno" name="fixture_id" value="{{$data->id}}" >
         </div>
       </div>
     <div class="row">
@@ -18,7 +18,7 @@
         <label for="date" id="date">Date</label>
       </div>
       <div class="col-75">
-        <input type="date" id="date" name="date" value="{{$data->date}}">
+        <input type="date" id="date" name="date" value="{{$data->date}}" >
       </div>
     </div>
     <div class="row">
@@ -27,7 +27,7 @@
         </div>
         @foreach ($data1 as $venu)
         <div class="col-75">
-          <input type="number" id="age" name="venu_id" value="{{ $venu->id }}">
+          <input type="number" id="age" name="venu_id" value="{{ $venu->id }}" >
         </div>
         @endforeach
       </div>
@@ -37,7 +37,7 @@
         </div>
         @foreach ($data1 as $venu)
         <div class="col-75">
-          <input type="number" id="age" name="ticket" value="{{$venu->capacity}}">
+          <input type="number" id="age" name="ticket" value="{{$venu->capacity}}" >
         </div>
         @endforeach
       </div>

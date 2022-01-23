@@ -30,7 +30,6 @@ class ResultController extends Controller
             'opponent'=>$request->opponent,
             'opponentgoal'=>$request->opponentgoal,
             'fixture_id'=>$request->fixture_id,
-            'status'=>$request->status,
         ]);
         $data= Fixture::find($request->fixture_id);
         $data->update([

@@ -58,7 +58,6 @@ class PlayerListController extends Controller
             'age'=>$request->age,
             'foot'=>$request->foot,
             'salary'=>$request->salary,
-            'available'=>$request->available,
             'photo'=> $image_name,
         ]);
         $player_id=Player::orderBy('id','desc')->value('id');
