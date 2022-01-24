@@ -20,6 +20,7 @@ class UserTableSeeder extends Seeder
                 'password'=>bcrypt('janina'),
                 'role'=>'admin',
                 'mobile'=>'01836886761',
+                'photo' =>'default.jpg'
             ]
         );
 
@@ -30,6 +31,7 @@ class UserTableSeeder extends Seeder
                 'password'=>bcrypt('kichuekta'),
                 'role'=>'manager',
                 'mobile'=>'01710882198',
+                'photo' =>'default.jpg'
             ]
         );
     }

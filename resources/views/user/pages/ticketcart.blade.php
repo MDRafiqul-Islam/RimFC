@@ -47,6 +47,9 @@
    text-indent: 1px;
    text-overflow: '';
    }
+   .button{
+       padding: 10px;
+   }
 </style>
 <div class="container">
 <br>
@@ -59,6 +62,7 @@
         @csrf
         <input name="buy" type="submit" value="Confirm" class="button" >
     </form>
+    <a class="button" href="{{ route('user.pages.cancleticket', $data->id) }}">Cancle</a>
 </div>
 </div>
 

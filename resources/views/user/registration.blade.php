@@ -87,6 +87,9 @@
     <div class="form-field">
       <input type="password" name="password" placeholder="Password">
     </div>
+    <div class="form-field">
+        <input type="hidden" name="photo" value="default.jpg">
+      </div>
       <div class="form-field">
         <button class="btn" type="submit">Registration</button>
       </div>

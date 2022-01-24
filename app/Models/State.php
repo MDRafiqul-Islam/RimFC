@@ -9,4 +9,8 @@ class State extends Model
 {
     use HasFactory;
     protected $guarded=[];
+    public function player()
+    {
+        return $this->belongsTo(Player::class,);
+    }
 }

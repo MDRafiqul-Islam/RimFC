@@ -12,7 +12,8 @@ class PlayerStateController extends Controller
 {
     public function showState()
     {
-        return view('admin.pages.playerstatelist');
+        $state = State::all();
+        return view('admin.pages.playerstatelist',compact('state'));
     }
 
     public function createState()
@@ -34,8 +35,7 @@ class PlayerStateController extends Controller
         $save = $request->save;
 
         for($i=0;$i<count($name);$i++){
-        $players= State::select('player_id')->value('player_id');
-        if($players!= $name[$i])
+        if(! State::where('player_id', $name[$i])->exists())
         {
             State::create([
                         'player_id' =>$name[$i],
@@ -50,25 +50,23 @@ class PlayerStateController extends Controller
                     ]);
         }
 
-        else if($players== $name[$i]){
-            $min1= State::select('min')->value('min');
-            $tracle1= State::select('tracle')->value('tracle');
-            $clear1= State::select('clear')->value('clear');
-            $goal1= State::select('goal')->value('goal');
-            $assist1= State::select('assist')->value('assist');
-            $cleansheet1= State::select('cleansheet')->value('cleansheet');
-            $save1= State::select('save')->value('save');
+        else {
+            $min1[$i]= State::where('player_id', '=', $name[$i])->select('min')->value('min');
+            $tracle1[$i]= State::where('player_id', '=', $name[$i])->select('tracle')->value('tracle');
+            $clear1[$i]= State::where('player_id', '=', $name[$i])->select('clear')->value('clear');
+            $goal1[$i]= State::where('player_id', '=', $name[$i])->select('goal')->value('goal');
+            $assist1[$i]= State::where('player_id', '=', $name[$i])->select('assist')->value('assist');
+            $cleansheet1[$i]= State::where('player_id', '=', $name[$i])->select('cleansheet')->value('cleansheet');
+            $save1[$i]= State::where('player_id', '=', $name[$i])->select('save')->value('save');
             State::where('player_id', '=', $name[$i])->update([
-
-                'min' =>$tracle[$i]+$min1,
-                'tracle' =>$clear[$i]+$tracle1,
-                'clear' =>$clear[$i]+$clear1,
-                'goal' => $goal[$i]+$goal1,
-                'assist' =>$assist[$i]+$assist1,
-                'cleansheet' =>$cleansheet[$i]+$cleansheet1,
-                'save' => $save[$i]+$save1,
+                'min' =>$min[$i]+$min1[$i],
+                'tracle' =>$tracle[$i]+$tracle1[$i],
+                'clear' =>$clear[$i]+$clear1[$i],
+                'goal' => $goal[$i]+$goal1[$i],
+                'assist' =>$assist[$i]+$assist1[$i],
+                'cleansheet' =>$cleansheet[$i]+$cleansheet1[$i],
+                'save' => $save[$i]+$save1[$i],
             ]);
-
         }
 
         }

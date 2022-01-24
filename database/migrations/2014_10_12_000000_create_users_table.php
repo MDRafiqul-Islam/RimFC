@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('status')->default('active');
             $table->string('role')->default('user');
             $table->string('mobile')->unique();
+            $table->string('photo');
             $table->rememberToken();
             $table->timestamps();
         });

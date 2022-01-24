@@ -100,5 +100,11 @@ class TicketController extends Controller
     }
         return redirect()->route('user.pages.showticket')->with('success','Your Ticket is confirm');
     }
+    public function cancleTicket($id)
+    {
+        $ticket=Purchased::find($id)->delete();
+        return redirect()->route('user.pages.showticket')->with('success','Your Ticket Has Been Cancled');
+
+    }
 
 }

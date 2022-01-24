@@ -42,6 +42,7 @@ Route::get('/doregistration',[UserController::class,'doregistration'])->name('us
 Route::post('/registration',[UserController::class,'registration'])->name('user.registration');
 Route::post('/login',[UserController::class,'login'])->name('user.login');
 Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
+Route::get('/profile/{id}',[UserController::class,'userprofile'])->name('user.profile')->middleware('auth');
 
 //player
 Route::get('/pages/playersList',[UserHomeController::class, 'showPlayer'])->name('user.pages.playerslist');
@@ -64,6 +65,7 @@ Route::get('/pages/showticket',[TicketController::class, 'showTicketUser'])->nam
 Route::get('/pages/buyticket/{ticket_id}',[TicketController::class, 'buyTicket'])->name('user.pages.buyticket')->middleware('auth');
 Route::post('/pages/cartticket/{ticket_id}',[TicketController::class, 'cart'])->name('user.pages.cartticket')->middleware('auth');
 Route::post('/pages/confirmcart',[TicketController::class, 'confirmcart'])->name('user.pages.confirmcart')->middleware('auth');
+Route::get('/pages/cancleticket/{id}',[TicketController::class, 'cancleTicket'])->name('user.pages.cancleticket')->middleware('auth');
 
 });
 
@@ -202,9 +204,14 @@ Route::get('/pages/showGalleryCategory',[GalleryController::class, 'showGalleryC
 Route::get('/pages/createGalleryCategory',[GalleryController::class, 'createGalleryCategory'])->name('admin.pages.createGalleryCategory');
 Route::post('/pages/createCategory',[GalleryController::class, 'createCategory'])->name('admin.pages.createCategory');
 Route::get('/pages/showGallery',[GalleryController::class, 'showGallery'])->name('admin.pages.showGallery');
+   //player
+Route::get('/pages/showGalleryplayer',[GalleryController::class, 'showGalleryplayer'])->name('admin.pages.showGalleryplayer');
 Route::get('/pages/createGalleryplayer/{player_id}',[GalleryController::class, 'createGalleryplayer'])->name('admin.pages.createGalleryplayer');
 Route::post('/pages/addGalleryplayer',[GalleryController::class, 'addGalleryplayer'])->name('admin.pages.addGalleryplayer');
-
+   //result
+Route::get('/pages/showGalleryresult',[GalleryController::class, 'showGalleryresult'])->name('admin.pages.showGalleryresult');
+Route::get('/pages/createGalleryresult/{result_id}',[GalleryController::class, 'createGalleryresult'])->name('admin.pages.createGalleryresult');
+Route::post('/pages/addGalleryresult',[GalleryController::class, 'addGalleryresult'])->name('admin.pages.addGalleryresult');
 
 
 

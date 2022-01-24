@@ -25,6 +25,7 @@ class UserController extends Controller
             'email'=>$request->email,
             'password'=>bcrypt($request->password),
             'mobile'=>$request->mobile,
+            'photo'=>$request->photo
         ]);
 
         return redirect()->route('user.dologin')->with('success','Registration successful.');
@@ -73,5 +74,10 @@ class UserController extends Controller
         $user = User::where('id',$id);
         $user->update(['status'=>request('status')]);
         return redirect()->back();
+    }
+    public function userprofile($id)
+    {
+         $user= User::find($id);
+         return view('user.pages.profile',compact('user'));
     }
 }

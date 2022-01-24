@@ -15,25 +15,24 @@
   }
     .card-containers {
       display: grid;
-      grid-template-columns: 33.33% 33.33% 33.33%;
-      grid-gap: 15px;
+      grid-template-columns: 33% 33% 33%;
+      grid-gap: 10px;
+      padding-left: 8px;
 
   }
+  h1{
+        color: green;
+        font-size: 20px;
+        padding-bottom: 25px;
+        padding-top: 25px;
+        margin-left: 48%;
+  }
   </style>
-
-<br>
-@if(session()->has('success'))
-    <p class="alert-success">
-        {{session()->get('success')}}
-    </p>
-@elseif (session()->has('error'))
-<p class="alert-error">
-    {{session()->get('error')}}
-</p>
-@endif
 <br>
 {{-- @dd($data) --}}
 @foreach ($data as $gellary)
+@if($gellary->category_id == 4)
+<h1> Date: {{ $gellary->date }}</h1>
 <div class="card-containers">
     @foreach (explode('|', $gellary->photo) as $image)
   <div class="cards">
@@ -41,7 +40,8 @@
 </div>
   @endforeach
 </div>
-<br>
+@endif
 @endforeach
+<br>
 
 @endsection

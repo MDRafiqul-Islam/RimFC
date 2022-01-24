@@ -5,7 +5,13 @@
           <a href="{{url('/')}}"><img class="logo" src="{{url('RIMFC.jpg')}}" ></a>
           </div>
           <div class="site-header__end top">
-            <a href="{{ route('user.logout') }}">Logout</a>
+            @if(auth()->user())
+            <a href="{{route('user.logout')}}">Logout</a>
+            <a style="text-transform: capitalize;" href="{{ route('user.profile', auth()->user()->id) }}"><img style="height:45px; width:45px border: 2px solid red; border-radius: 25px;" src={{asset('/storage/users/'.auth()->user()->photo)}} alt="event"></a>
+            <a style="text-transform: capitalize;" href="{{ route('user.profile', auth()->user()->id) }}">{{auth()->user()->name}}</a>
+            @else
+            <a href="{{route('user.dologin')}}">Login</a>
+            @endif
           </div>
         </div>
       </div>

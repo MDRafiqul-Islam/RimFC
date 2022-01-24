@@ -13,11 +13,10 @@ class PlayerListController extends Controller
     {
         $Total_salary = 5000;
         $player_salary=0;
-        $remain_salary= $Total_salary;
         $players= Player::all();
         foreach ($players as $key => $player) {
             $player_salary+= $player->salary;
-            $remain_salary-=$player_salary;
+            $remain_salary = $Total_salary- $player_salary;
         }
         return view('admin.pages.playerslist',compact('players','Total_salary','player_salary','remain_salary'));
     }
@@ -34,13 +33,12 @@ class PlayerListController extends Controller
     {
         $Total_salary = 5000;
         $player_salary=0;
-        $remain_salary= $Total_salary;
         $players= Player::all();
         $player_name = $request->name;
         $player_position = $request->position;
         foreach ($players as $key => $player) {
             $player_salary+= $player->salary;
-            $remain_salary-=$player_salary;
+            $remain_salary = $Total_salary- $player_salary;
         }
         if($player_salary<= $Total_salary){
         $image_name=null;
