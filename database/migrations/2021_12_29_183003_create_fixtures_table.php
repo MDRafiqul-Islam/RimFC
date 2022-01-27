@@ -21,6 +21,7 @@ class CreateFixturesTable extends Migration
             $table->string('venu');
             $table->string('resultstatus')->default('0');
             $table->string('ticketstatus')->default('0');
+            $table->string('formationstatus')->default('0');
             $table->string('ticket')->nullable();
             $table->string('photo')->nullable();
             $table->timestamps();

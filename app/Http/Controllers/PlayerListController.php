@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\State;
 use App\Models\Player;
-use App\Models\PlayerTraining;
 use Illuminate\Http\Request;
+use App\Models\PlayerTraining;
 use Illuminate\Support\Facades\File;
 
 class PlayerListController extends Controller
@@ -13,6 +14,7 @@ class PlayerListController extends Controller
     {
         $Total_salary = 5000;
         $player_salary=0;
+        $remain_salary= $Total_salary;
         $players= Player::all();
         foreach ($players as $key => $player) {
             $player_salary+= $player->salary;
@@ -78,6 +80,10 @@ class PlayerListController extends Controller
     {
        Player::find($player_id)->delete();
        PlayerTraining::find($player_id)->delete();
+       if(State::find($player_id)->exists())
+       {
+        State::find($player_id)->delete();
+       }
        return redirect()->back()->with('success','Player Deleted.');
     }
 

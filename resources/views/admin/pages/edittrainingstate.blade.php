@@ -55,7 +55,7 @@
         <label for="dribbling" id="age">Dribbling</label>
       </div>
       <div class="col-75">
-        <input type="number" id="name" name="dribbling" value="{{$data['dribbling']}}">
+        <input type="number" id="name" name="dribbling" value="{{$data->dribbling}}">
       </div>
     </div>
     <div class="row">

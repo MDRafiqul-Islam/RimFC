@@ -83,6 +83,10 @@ class FormationController extends Controller
                 'position' =>$position[$i],
                 'status' => $status[$i],
             ]);
+            $data= Fixture::find($fixture_id[$i]);
+            $data->update([
+                'formationstatus'=>'1'
+            ]);
         }
         return redirect()->back()->with('success','Player Created Successfully.');
     }

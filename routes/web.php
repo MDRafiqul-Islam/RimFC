@@ -108,6 +108,41 @@ Route::get('/pages/trainingtype',[TrainingTypeController::class, 'trainingtypeli
 Route::get('/pages/trainingstatus',[TrainingTypeController::class, 'trainingstatus'])->name('manager.pages.trainingstatus');
 Route::get('/pages/editstatus/{id}',[TrainingTypeController::class, 'editstatmanager'])->name('manager.pages.editstatus');
 Route::patch('/pages/editstatuslist/{id}', [TrainingTypeController::class, 'editstateListmanager'])->name('manager.pages.editstatuslist');
+  //driblling
+  Route::get('/pages/trainingdribling',[TrainingTypeController::class, 'traindriblling'])->name('manager.pages.training.dribbling');
+  Route::get('/pages/addtainingdriblling',[TrainingTypeController::class, 'trainingdriblling'])->name('manager.pages.addtainingdriblling');
+  Route::get('/pages/trainplayerdribling',[TrainingTypeController::class, 'showdriblling'])->name('manager.pages.dribbling');
+  Route::Post('/pages/editdribling',[TrainingTypeController::class, 'editdriblling'])->name('manager.pages.edit.dribbling');
+  //crossing
+  Route::get('/pages/trainingcrossing',[TrainingTypeController::class, 'traincrossing'])->name('manager.pages.training.crossing');
+  Route::get('/pages/addtainingcrossing',[TrainingTypeController::class, 'trainingcrossing'])->name('manager.pages.addtainingcrossing');
+  Route::get('/pages/trainplayercrossing',[TrainingTypeController::class, 'showcrossing'])->name('manager.pages.crossing');
+  Route::Post('/pages/editcrossing',[TrainingTypeController::class, 'editcrossing'])->name('manager.pages.edit.crossing');
+  //heading
+  Route::get('/pages/trainingheading',[TrainingTypeController::class, 'trainheading'])->name('manager.pages.training.heading');
+  Route::get('/pages/addtainingheading',[TrainingTypeController::class, 'trainingheading'])->name('manager.pages.addtainingheading');
+  Route::get('/pages/trainplayerheading',[TrainingTypeController::class, 'showheading'])->name('manager.pages.heading');
+  Route::Post('/pages/editheading',[TrainingTypeController::class, 'editheading'])->name('manager.pages.edit.heading');
+  //passing
+  Route::get('/pages/traininpassing',[TrainingTypeController::class, 'trainpassing'])->name('manager.pages.training.passing');
+  Route::get('/pages/addtainingpassing',[TrainingTypeController::class, 'trainingpassing'])->name('manager.pages.addtainingpassing');
+  Route::get('/pages/trainplayerpassing',[TrainingTypeController::class, 'showpassing'])->name('manager.pages.passing');
+  Route::Post('/pages/editpassing',[TrainingTypeController::class, 'editpassing'])->name('manager.pages.edit.passing');
+  //shooting
+  Route::get('/pages/trainingshooting',[TrainingTypeController::class, 'trainshooting'])->name('manager.pages.training.shooting');
+  Route::get('/pages/addtainingshooting',[TrainingTypeController::class, 'trainingshooting'])->name('manager.pages.addtainingshooting');
+  Route::get('/pages/trainplayershooting',[TrainingTypeController::class, 'showshooting'])->name('manager.pages.shooting');
+  Route::Post('/pages/editshooting',[TrainingTypeController::class, 'editshooting'])->name('manager.pages.edit.shooting');
+  //tracling
+  Route::get('/pages/trainingtracling',[TrainingTypeController::class, 'traintracling'])->name('manager.pages.training.tracling');
+  Route::get('/pages/addtaining',[TrainingTypeController::class, 'trainingtracling'])->name('manager.pages.addtainingtracling');
+  Route::get('/pages/trainplayertracling',[TrainingTypeController::class, 'showtracling'])->name('manager.pages.tracling');
+  Route::Post('/pages/edittracling',[TrainingTypeController::class, 'edittracling'])->name('manager.pages.edit.tracling');
+  //turning
+  Route::get('/pages/trainingturning',[TrainingTypeController::class, 'trainturning'])->name('manager.pages.training.turning');
+  Route::get('/pages/addtainingturning',[TrainingTypeController::class, 'trainingturning'])->name('manager.pages.addtainingturning');
+  Route::get('/pages/trainplayerturning',[TrainingTypeController::class, 'showturning'])->name('manager.pages.turning');
+  Route::Post('/pages/editturning',[TrainingTypeController::class, 'editturning'])->name('manager.pages.edit.turning');
 
 
 });
@@ -174,6 +209,9 @@ Route::patch('/pages/EditFixturelist/{fixture_id}', [FixtureController::class, '
 Route::get('/pages/createresult/{fixture_id}',[ResultController::class, 'createResult'])->name('admin.pages.createresult');
 Route::post('/pages/addresult',[ResultController::class, 'addResult'])->name('admin.pages.addresult');
 Route::get('/pages/result',[ResultController::class, 'showResult'])->name('admin.pages.result');
+Route::get('/pages/deleteresult/{result_id}',[ResultController::class, 'resultdelete'])->name('admin.pages.deleteresult');
+Route::get('/pages/Editresult/{result_id}', [ResultController::class, 'resultEdit'])->name('admin.pages.editresult');
+Route::patch('/pages/Editresultlist/{result_id}', [ResultController::class, 'editResultList'])->name('admin.pages.editresultlist');
 
 //manage
 Route::get('/pages/user',[ManageController::class, 'showUser'])->name('admin.pages.manageuser');

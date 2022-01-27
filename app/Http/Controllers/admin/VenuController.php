@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Models\Venu;
+use App\Models\Ticket;
 use App\Models\VenuGallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,6 +51,12 @@ class VenuController extends Controller
         $data->capacity=$request->input('capacity');
         $data->location=$request->input('location');
         $data->update();
+        $ticket = Ticket::all();
+        foreach($ticket as $tick){
+            $tick->update([
+                'ticket'=> $request->input('capacity')
+            ]);
+        }
         return redirect()->route('admin.pages.venu')->with('success','Venu Edited.');
     }
 

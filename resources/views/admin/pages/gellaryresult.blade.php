@@ -31,7 +31,7 @@
 <br>
 {{-- @dd($data) --}}
 @foreach ($data as $gellary)
-@if($gellary->category_id == 4)
+@if($gellary->category_id == 2)
 <h1> Date: {{ $gellary->date }}</h1>
 <div class="card-containers">
     @foreach (explode('|', $gellary->photo) as $image)
