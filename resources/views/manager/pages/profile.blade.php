@@ -1,5 +1,4 @@
-
-@extends('user.welcome')
+@extends('manager.welcome')
 @section('content')
 
 <style>
@@ -60,27 +59,6 @@ h2{
 <h2>Created At: {{ $user->created_at->diffforhumans()}}</h2>
 </div>
 </div>
-<br><br><br>
-@if ($user->role == 'user')
-<table id="players">
-    <tr>
-        <th>Ticket ID</th>
-        <th>Fixture ID</th>
-        <th>Quantity</th>
-        <th></th>
-    </tr>
-    @foreach ($ticket as $tickets)
-        @if($tickets->status == 'confirm')
-        <tr>
-            <td width="20%">{{ $tickets->ticket_id}}</td>
-            <td width="20%">{{ $tickets->fixture_id}}</td>
-            <td width="20%">{{ $tickets->quantity}}</td>
-            <td width="20%"> <a href="#" class="button">Print</a></td>
-        </tr>
-        @endif
-        @endforeach
-    </table>
-    @endif
 <br>
 <br>
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pachievement;
 use App\Models\State;
 use App\Models\Player;
 use Illuminate\Http\Request;
@@ -66,6 +67,9 @@ class PlayerListController extends Controller
             'player_name'=>$player_name,
             'player_position'=>$player_position,
         ]);
+        Pachievement::create([
+            'player_id'=>$player_id
+        ]);
         return redirect()->route('admin.pages.playerslist')->with('success','Player Created Successfully.');
         }
 
@@ -79,10 +83,11 @@ class PlayerListController extends Controller
     public function playerDelete($player_id)
     {
        Player::find($player_id)->delete();
-       PlayerTraining::find($player_id)->delete();
-       if(State::find($player_id)->exists())
+       PlayerTraining::where('player_id', $player_id)->delete();
+       Pachievement::where('player_id', $player_id)->delete();
+       if(State::where('player_id', $player_id)->exists())
        {
-        State::find($player_id)->delete();
+        State::where('player_id', $player_id)->delete();
        }
        return redirect()->back()->with('success','Player Deleted.');
     }
@@ -128,5 +133,31 @@ class PlayerListController extends Controller
         $players= Player::where('position', $request->search)->get();
         return view('admin.pages.playersearch', compact('players'));
     }
+
+    public function pachivement()
+    {
+        $data = Pachievement::all();
+        return view('admin.pages.playerachievement',compact('data'));
+    }
+
+    public function pachivementEdit($player_id)
+    {
+        $data = Pachievement::where('player_id', $player_id)->first();
+        return view('admin.pages.editplayerachievement', compact('data'));
+    }
+
+    public function editpachivement(Request $request, $id)
+    {
+        $achievement= Pachievement::where('player_id', $id);
+        $achievement->update([
+             'ballon_d_or'=>$request->ballon_d_or,
+             'fifa_best'=>$request->fifa_best,
+             'ball'=>$request->ball,
+             'boot'=>$request->boot,
+             'globes'=>$request->globes
+        ]);
+        return redirect()->route('admin.pages.playerachievement')->with('success','Player Achievement Edited.');
+    }
+
 
 }

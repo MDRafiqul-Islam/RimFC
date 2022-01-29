@@ -10,6 +10,7 @@
     @foreach ($message  as $massage )
     <tr>
     <td width="20%;">{{ $massage ->user->name}}</td>
+    <td width="20%;">{{$massage ->updated_at->diffforhumans()}}</td>
     <td>{{ $massage ->massage }}</td>
     </tr>
     @endforeach

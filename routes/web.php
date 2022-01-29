@@ -46,6 +46,7 @@ Route::get('/profile/{id}',[UserController::class,'userprofile'])->name('user.pr
 
 //player
 Route::get('/pages/playersList',[UserHomeController::class, 'showPlayer'])->name('user.pages.playerslist');
+Route::get('/pages/playerdetailes/{player_id}',[UserHomeController::class, 'playerdetailes'])->name('user.pages.playerdetailes');
 
 //news
 Route::get('/pages/news',[UserHomeController::class, 'shownews'])->name('user.pages.news');
@@ -77,8 +78,7 @@ Route::group(['prefix'=>'manager', 'middleware'=>['auth','manager']],function ()
     Route::get('/', function () {
             return view('manager.welcome');
         })->name('website');
-
-
+Route::get('/manager/profile/{id}',[UserController::class,'managerprofile'])->name('manager.profile');
 //player
 Route::get('/pages/playersList',[playercontroller::class, 'showPlayer'])->name('manager.pages.playerslist');
 Route::get('/pages/matchplayer',[FormationController::class, 'matchPlayer'])->name('manager.pages.matchplayer');
@@ -159,7 +159,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
         });
 
 
-
+Route::get('/admin/profile/{id}',[UserController::class,'adminprofile'])->name('admin.profile');
 //players
 Route::get('/pages/playersList',[PlayerListController::class, 'playerList'])->name('admin.pages.playerslist');
 Route::get('/pages/createplayers',[PlayerListController::class, 'create'])->name('admin.pages.createplayers');
@@ -251,6 +251,9 @@ Route::get('/pages/showGalleryresult',[GalleryController::class, 'showGalleryres
 Route::get('/pages/createGalleryresult/{result_id}',[GalleryController::class, 'createGalleryresult'])->name('admin.pages.createGalleryresult');
 Route::post('/pages/addGalleryresult',[GalleryController::class, 'addGalleryresult'])->name('admin.pages.addGalleryresult');
 
-
+//Player Achievement
+Route::get('/pages/PlayerAchievement',[PlayerListController::class, 'pachivement'])->name('admin.pages.playerachievement');
+Route::get('/pages/editplayerAchievement/{player_id}',[PlayerListController::class, 'pachivementEdit'])->name('admin.pages.editplayerachievement');
+Route::patch('/pages/playerAchievementedit/{id}',[PlayerListController::class, 'editpachivement'])->name('admin.pages.playerachievementedit');
 
 });

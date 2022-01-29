@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Purchased;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -78,6 +79,17 @@ class UserController extends Controller
     public function userprofile($id)
     {
          $user= User::find($id);
-         return view('user.pages.profile',compact('user'));
+         $ticket = Purchased:: all();
+         return view('user.pages.profile',compact('user','ticket'));
+    }
+    public function adminprofile($id)
+    {
+         $user= User::find($id);
+         return view('admin.pages.profile',compact('user'));
+    }
+    public function managerprofile($id)
+    {
+         $user= User::find($id);
+         return view('manager.pages.profile',compact('user'));
     }
 }

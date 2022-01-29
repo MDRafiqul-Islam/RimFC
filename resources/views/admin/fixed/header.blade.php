@@ -7,8 +7,8 @@
           <div class="site-header__end top">
             @if(auth()->user())
             <a href="{{route('user.logout')}}">Logout</a>
-            <a style="text-transform: capitalize;" href="{{ route('user.profile', auth()->user()->id) }}"><img style="height:45px; width:45px border: 2px solid red; border-radius: 25px;" src={{asset('/storage/users/'.auth()->user()->photo)}} alt="event"></a>
-            <a style="text-transform: capitalize;" href="{{ route('user.profile', auth()->user()->id) }}">{{auth()->user()->name}}</a>
+            <a style="text-transform: capitalize;" href="{{ route('admin.profile', auth()->user()->id) }}"><img style="height:45px; width:45px border: 2px solid red; border-radius: 25px;" src={{asset('/storage/users/'.auth()->user()->photo)}} alt="event"></a>
+            <a style="text-transform: capitalize;" href="{{ route('admin.profile', auth()->user()->id) }}">{{auth()->user()->name}}</a>
             @else
             <a href="{{route('user.dologin')}}">Login</a>
             @endif
@@ -40,6 +40,7 @@
                 <a href="{{ route('admin.pages.playerstatelist') }}">Player Stats</a>
                 <a href="{{ route('admin.pages.trainingstatus') }}">Training Stats</a>
                 <a href="#">Match Player</a>
+                <a href="{{ route('admin.pages.playerachievement') }}">Player Achievement</a>
                 </div>
                 </li>
                 <li class="nav__item"><a href="{{ route('admin.pages.showticket') }}">Ticket</a></li>
