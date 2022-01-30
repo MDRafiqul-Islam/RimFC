@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Massage;
+use App\Notifications\MessageNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,6 +23,7 @@ class MessageController extends Controller
         ->orwhere('sender_id',$user_id)
         ->where('receiver_id',Auth::user()->id)
         ->get();
+        Auth::user()->notifications->markAsRead();
         return view('admin.pages.masagelist', compact('message','user_id'));
     }
 
@@ -32,6 +34,7 @@ class MessageController extends Controller
             'sender_id'=>Auth::user()->id,
             'receiver_id'=>$user_id,
         ]);
+        User::find($user_id)->notify(new MessageNotification);
         return redirect()->back();
     }
 
@@ -48,6 +51,7 @@ class MessageController extends Controller
         ->orwhere('sender_id',$user_id)
         ->where('receiver_id',Auth::user()->id)
         ->get();
+        Auth::user()->notifications->markAsRead();
         return view('manager.pages.massagelist', compact('message','user_id'));
     }
 
@@ -58,6 +62,7 @@ class MessageController extends Controller
             'sender_id'=>Auth::user()->id,
             'receiver_id'=>$user_id,
         ]);
+        User::find($user_id)->notify(new MessageNotification);
         return redirect()->back();
     }
 
@@ -74,6 +79,7 @@ class MessageController extends Controller
         ->orwhere('sender_id',$user_id)
         ->where('receiver_id',Auth::user()->id)
         ->get();
+        Auth::user()->notifications->markAsRead();
         return view('user.pages.massagelist', compact('message','user_id'));
     }
 
@@ -84,6 +90,7 @@ class MessageController extends Controller
             'sender_id'=>Auth::user()->id,
             'receiver_id'=>$user_id,
         ]);
+        User::find($user_id)->notify(new MessageNotification);
         return redirect()->back();
     }
 }

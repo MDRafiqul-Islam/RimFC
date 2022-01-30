@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\manager;
 
-use App\Http\Controllers\Controller;
-use App\Models\Fixture;
 use App\Models\Player;
+use App\Models\Result;
+use App\Models\Fixture;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class playercontroller extends Controller
 {
@@ -13,6 +14,12 @@ class playercontroller extends Controller
     {
         $players=Player::all();
         return view('manager.pages.playerslist',compact('players'));
+    }
+
+    public function showResult()
+    {
+        $results= Result::all();
+        return view('manager.pages.result', compact('results'));
     }
 
 }

@@ -14,9 +14,8 @@
         font-family: "Times New Roman", Georgia, serif;
     }
     .img img{
-    margin-left: 22%;
-    width: 156px;
-    height: 156px;
+    width: 120px;
+    height: 120px;
   }
   .sec{
     display: flex;
@@ -41,8 +40,21 @@
       box-shadow:6px 6px 10px grey;
       background-size: 400px;
   }
+  .error{
+      color:red;
+      background-size: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 </style>
 
+@if(session()->has('success'))
+                <p class="error">
+                    {{session()->get('success')}}
+                </p>
+                @endif
+<br>
 <div class="contain">
     <h1>Playing Position</h1>
 </div>
@@ -50,156 +62,57 @@
 <br>
 <h2>Match Players</h2>
 <br>
- <section class="sec">
+<table id="players">
+    <tr>
+        <th>Player</th>
+        <th>Position</th>
+        <th></th>
+    </tr>
     @foreach ($matchplayer as $matchplayers)
-    @if (value($matchplayers->position) == 'CF' && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
+    @if (value($matchplayers->status) == 'main')
+    <tr>
+        <td width="25%"> <div class="img">
+            <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
+        </div>
+       </td>
+        <td>{{ $matchplayers->position}}</td>
+        <td>
+            <a href="{{ route('manager.pages.editplayer', $matchplayers->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+              </svg></a>
+          </td>
+    </tr>
     @endif
     @endforeach
-</section>
-
-
- <section class="sec">
-    @foreach ($matchplayer as $matchplayers)
-    @if ((value($matchplayers->position) == 'RWF'|| value($matchplayers->position) == 'LWF') && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
-
-
- <section class="sec">
-
-     @foreach ($matchplayer as $matchplayers)
-    @if (value($matchplayers->position) == 'AMF' && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
-
-
- <section class="sec">
-
-     @foreach ($matchplayer as $matchplayers)
-    @if (value($matchplayers->position) == 'CMF' && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
-
-
-
- <section class="sec">
-
-     @foreach ($matchplayer as $matchplayers)
-    @if (value($matchplayers->position) == 'DMF' && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
-
-
- <section class="sec">
-
-     @foreach ($matchplayer as $matchplayers)
-    @if ((value($matchplayers->position) == 'LB'||value($matchplayers->position) == 'RB') && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
-
-
- <section class="sec">
-
-     @foreach ($matchplayer as $matchplayers )
-    @if (value($matchplayers->position) == 'CB' && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
-
-
- <section class="sec">
-
-     @foreach ($matchplayer as $matchplayers)
-    @if (value($matchplayers->position) == 'GK' && value($matchplayers->status) == 'main')
-    <div class="playersec">
-    <div class="img">
-        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-    </div>
-    </div>
-       <div class="info">
-            <h4>{{ $matchplayers->position}}</h4><br>
-    </div>
-    @endif
-    @endforeach
-</section>
+</table>
 <br>
 <h2>Extra Players</h2>
 <br>
-<section class="sec">
+<table id="players">
+    <tr>
+        <th>Player</th>
+        <th>Position</th>
+        <th></th>
+    </tr>
     @foreach ($matchplayer as $matchplayers)
    @if (value($matchplayers->status) == 'extra')
-   <div class="playersec">
-   <div class="img">
-       <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
-   </div>
-   </div>
-   <div class="info">
-    <h4>{{ $matchplayers->position}}</h4><br>
+   <tr>
+    <td width="25%"> <div class="img">
+        <img  src="{{asset('storage/players/'.$matchplayers->player->photo)}}" alt="Item 1">
     </div>
+   </td>
+    <td>{{ $matchplayers->position}}</td>
+    <td>
+        <a href="{{ route('manager.pages.editplayer', $matchplayers->id) }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg></a>
+    </td>
+</tr>
    @endif
    @endforeach
-</section>
 
+</table>
 
 @endsection

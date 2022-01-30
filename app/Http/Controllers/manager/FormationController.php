@@ -64,9 +64,9 @@ class FormationController extends Controller
         return view('manager.pages.formations.4-4-2',compact('fixture','players'));
     }
 
-
     public function createFormation(Request $request)
     {
+        if(Formation::all()->count() == 0){
         $fixture_id = $request->fixture_id;
         $date = $request->date;
         $formation = $request->formation;
@@ -90,10 +90,15 @@ class FormationController extends Controller
         }
         return redirect()->back()->with('success','Player Created Successfully.');
     }
+    else{
+        return redirect()->route('manager.pages.matchplayer')->with('success','Player Exists For The Previous Match.');
+    }
+    }
 
     public function showPosition()
     {
         $positions = Formation::all();
+        $photo="";
         foreach ($positions as $position) {
         $photo = $position->formation;
         }
@@ -104,5 +109,24 @@ class FormationController extends Controller
     {
         $matchplayer = Formation::with('player')->get();
         return view('manager.pages.matchplayer', compact('matchplayer'));
+    }
+
+    public function editplayer($id)
+    {
+        $players = Player::all();
+        $data= Formation::find($id);
+        return view('manager.pages.editmatchplayer',compact('data','players'));
+
+    }
+
+    public function playeredit(Request $request, $id)
+    {
+        $data= Formation::find($id);
+        $data->update([
+            'player_id'=>$request->name,
+            'position'=>$request->position,
+            'status'=>$request->status,
+        ]);
+        return redirect()->route('manager.pages.matchplayer')->with('success','Player Created Successfully.');
     }
 }

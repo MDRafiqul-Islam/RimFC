@@ -92,6 +92,8 @@ Route::get('/manager/profile/{id}',[UserController::class,'managerprofile'])->na
 //player
 Route::get('/pages/playersList',[playercontroller::class, 'showPlayer'])->name('manager.pages.playerslist');
 Route::get('/pages/matchplayer',[FormationController::class, 'matchPlayer'])->name('manager.pages.matchplayer');
+Route::get('/pages/editplayer/{id}',[FormationController::class, 'editplayer'])->name('manager.pages.editplayer');
+Route::patch('/pages/playeredit/{id}',[FormationController::class, 'playeredit'])->name('manager.pages.playeredit');
 
 //fixture
 Route::get('/pages/fixture',[ManagerFixtureController::class, 'showFixture'])->name('manager.pages.fixture');
@@ -153,6 +155,9 @@ Route::patch('/pages/editstatuslist/{id}', [TrainingTypeController::class, 'edit
   Route::get('/pages/addtainingturning',[TrainingTypeController::class, 'trainingturning'])->name('manager.pages.addtainingturning');
   Route::get('/pages/trainplayerturning',[TrainingTypeController::class, 'showturning'])->name('manager.pages.turning');
   Route::Post('/pages/editturning',[TrainingTypeController::class, 'editturning'])->name('manager.pages.edit.turning');
+
+//Result
+Route::get('/pages/result',[playercontroller::class, 'showResult'])->name('manager.pages.result');
 
 
 });

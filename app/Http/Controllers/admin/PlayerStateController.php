@@ -71,6 +71,7 @@ class PlayerStateController extends Controller
 
         }
 
+        Formation::whereNotNull('id')->delete();
         return redirect()->route('admin.pages.playerstatelist')->with('success','Player Created Successfully.');
     }
 }

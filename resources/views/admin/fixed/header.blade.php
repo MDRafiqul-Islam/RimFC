@@ -44,7 +44,8 @@
                 </div>
                 </li>
                 <li class="nav__item"><a href="{{ route('admin.pages.showticket') }}">Ticket</a></li>
-                <li class="nav__item"><a href="{{ route('admin.pages.massage') }}">Massage</a></li>
+                <li class="nav__item"><a href="{{ route('admin.pages.massage') }}">Massage @if (Auth::user()->unreadnotifications()->count() >0)
+                    {{ Auth::user()->unreadnotifications()->count() }}@endif</a></li>
                 <li class="nav__item">More
                   <div class="dropdown-content">
                     <a href="{{ route('admin.pages.venu') }}">Stadium</a>

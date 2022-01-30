@@ -26,7 +26,7 @@
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
                     <a href="{{ route('manager.pages.fixture') }}">Fixture</a>
-                    <a href="#">Results</a>
+                    <a href="{{ route('manager.pages.result') }}">Results</a>
                   </div>
                 </li>
                 <li class="nav__item"><a href="{{ route('manager.pages.playerslist') }}">Players</a></li>
@@ -42,7 +42,8 @@
                     <a href="{{ route('manager.pages.trainingstatus') }}">Player Status</a>
                 </div>
               </li>
-              <li class="nav__item"><a href="{{ route('manager.pages.massage') }}">Massage</a></li>
+              <li class="nav__item"><a href="{{ route('manager.pages.massage') }}">Massage @if (Auth::user()->unreadnotifications()->count() >0)
+                {{ Auth::user()->unreadnotifications()->count() }}@endif</a></li>
               </ul>
             </nav>
           </div>
