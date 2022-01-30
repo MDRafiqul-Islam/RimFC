@@ -50,6 +50,7 @@
                     <a href="{{ route('admin.pages.venu') }}">Stadium</a>
                     <a href="{{ route('admin.pages.manageuser') }}">User</a>
                     <a href="{{ route('admin.pages.partnerlist') }}">Partner</a>
+                    <a href="{{ route('admin.pages.achievement') }}">Achievement</a>
                   </div>
                 </li>
               </ul>

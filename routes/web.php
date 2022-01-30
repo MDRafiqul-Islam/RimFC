@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\user\UserController;
@@ -19,6 +20,7 @@ use App\Http\Controllers\manager\TrainingTypeController;
 use App\Http\Controllers\manager\Fixturecontroller as ManagerFixtureController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\TicketController;
+use App\Models\Achievement;
 use GuzzleHttp\Psr7\Message;
 
 /*
@@ -68,6 +70,14 @@ Route::post('/pages/cartticket/{ticket_id}',[TicketController::class, 'cart'])->
 Route::post('/pages/confirmcart',[TicketController::class, 'confirmcart'])->name('user.pages.confirmcart')->middleware('auth');
 Route::get('/pages/cancleticket/{id}',[TicketController::class, 'cancleTicket'])->name('user.pages.cancleticket')->middleware('auth');
 
+//fixture
+Route::get('/pages/fixture',[UserHomeController::class, 'showfixture'])->name('user.pages.fixture');
+//result
+Route::get('/pages/result',[UserHomeController::class, 'showResult'])->name('user.pages.result');
+//venu
+Route::get('/pages/venu',[UserHomeController::class, 'showvenu'])->name('user.pages.venu');
+//sponsor
+Route::get('/pages/partnerlist',[UserHomeController::class, 'showsponsor'])->name('user.pages.partnerlist');
 });
 
 
@@ -250,10 +260,19 @@ Route::post('/pages/addGalleryplayer',[GalleryController::class, 'addGalleryplay
 Route::get('/pages/showGalleryresult',[GalleryController::class, 'showGalleryresult'])->name('admin.pages.showGalleryresult');
 Route::get('/pages/createGalleryresult/{result_id}',[GalleryController::class, 'createGalleryresult'])->name('admin.pages.createGalleryresult');
 Route::post('/pages/addGalleryresult',[GalleryController::class, 'addGalleryresult'])->name('admin.pages.addGalleryresult');
+   //achievement
 
 //Player Achievement
 Route::get('/pages/PlayerAchievement',[PlayerListController::class, 'pachivement'])->name('admin.pages.playerachievement');
 Route::get('/pages/editplayerAchievement/{player_id}',[PlayerListController::class, 'pachivementEdit'])->name('admin.pages.editplayerachievement');
 Route::patch('/pages/playerAchievementedit/{id}',[PlayerListController::class, 'editpachivement'])->name('admin.pages.playerachievementedit');
+
+//achievement
+Route::get('/pages/Achievement',[AchievementController::class, 'achievement'])->name('admin.pages.achievement');
+Route::get('/pages/createAchievement',[AchievementController::class, 'create'])->name('admin.pages.createachievement');
+Route::post('/pages/createAchievementlist',[AchievementController::class, 'addachievement'])->name('admin.pages.crateachievementlist');
+Route::get('/pages/Deleteachievement/{id}',[AchievementController::class, 'deleteachievemnt'])->name('admin.pages.deleteachievement');
+Route::get('/pages/editAchievement/{id}',[AchievementController::class, 'achivementEdit'])->name('admin.pages.editachievement');
+Route::patch('/pages/achievementedit/{id}',[AchievementController::class, 'editachivement'])->name('admin.pages.achievementedit');
 
 });

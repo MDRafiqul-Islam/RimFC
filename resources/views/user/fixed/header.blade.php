@@ -27,16 +27,16 @@
                 <li class="nav__item"><a href="{{ route('user.pages.massage') }}">Massage</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
-                    <a href="#">Fixture</a>
-                    <a href="#">Results</a>
+                    <a href="{{ route('user.pages.fixture') }}">Fixture</a>
+                    <a href="{{ route('user.pages.result') }}">Results</a>
                   </div>
                 </li>
                 <li class="nav__item"><a href="{{ route('user.pages.playerslist') }}">Players</a></li>
                 <li class="nav__item"><a href="{{ route('user.pages.showticket') }}">Ticket</a></li>
                 <li class="nav__item">More
                   <div class="dropdown-content">
-                    <a href="#">Stadium</a>
-                    <a href="#">Partner</a>
+                    <a href="{{ route('user.pages.venu') }}">Stadium</a>
+                    <a href="{{ route('user.pages.partnerlist') }}">Partner</a>
                   </div>
                 </li>
               </ul>
