@@ -86,7 +86,7 @@ Route::get('/pages/partnerlist',[UserHomeController::class, 'showsponsor'])->nam
 
 Route::group(['prefix'=>'manager', 'middleware'=>['auth','manager']],function (){
     Route::get('/', function () {
-            return view('manager.welcome');
+            return view('manager.pages.playerslist');
         })->name('website');
 Route::get('/manager/profile/{id}',[UserController::class,'managerprofile'])->name('manager.profile');
 //player
