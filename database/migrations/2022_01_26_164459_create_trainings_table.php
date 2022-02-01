@@ -18,6 +18,13 @@ class CreateTrainingsTable extends Migration
             $table->date('date');
             $table->string('player_id');
             $table->string('status')->default('good');
+            $table->double('dribbling')->default(0);
+            $table->double('shooting')->default(0);
+            $table->double('crossing')->default(0);
+            $table->double('turning')->default(0);
+            $table->double('tackling')->default(0);
+            $table->double('heading')->default(0);
+            $table->double('passing')->default(0);
             $table->timestamps();
         });
     }

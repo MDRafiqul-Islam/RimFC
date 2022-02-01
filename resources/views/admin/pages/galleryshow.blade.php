@@ -42,10 +42,10 @@
         <a href="{{ route('admin.pages.showGalleryresult') }}"><img style="border-radius: 10px;" width="256px;" height="256px;" src="{{url('result.jpg')}}" ></a>
     </div>
     <div class="cards">
-        <a href=""><img style="border-radius: 10px;" width="256px;" height="256px;" src="{{url('achievement.jpg')}}" ></a>
+        <a href="{{ route('admin.pages.showGalleryachievement') }}"><img style="border-radius: 10px;" width="256px;" height="256px;" src="{{url('achievement.jpg')}}" ></a>
     </div>
     <div class="cards">
-        <a href=""><img style="border-radius: 10px;" width="256px;" height="256px;" src="{{url('training.jpg')}}" ></a>
+        <a href="{{ route('admin.pages.showGallerytraining') }}"><img style="border-radius: 10px;" width="256px;" height="256px;" src="{{url('training.jpg')}}" ></a>
     </div>
 </div>
 <br><br>

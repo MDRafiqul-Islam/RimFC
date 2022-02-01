@@ -12,8 +12,8 @@ class playercontroller extends Controller
 {
     public function showPlayer()
     {
-        $players=Player::all();
-        return view('manager.pages.playerslist',compact('players'));
+        $player=Player::all();
+        return view('manager.pages.playerslist',compact('player'));
     }
 
     public function showResult()

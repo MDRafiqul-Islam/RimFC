@@ -31,7 +31,12 @@ class FixtureController extends Controller
             $image_name=date('Ymdhis') .'.'. $request->file('photo')->getClientOriginalExtension();
             $request->file('photo')->storeAs('/fixture',$image_name);
         }
-
+        $request->validate([
+            'date'=> 'required',
+            'time'=>'required',
+            'opponent'=>'required',
+            'venu'=>'required',
+        ]);
         Fixture::create([
             'photo'=> $image_name,
             'date'=>$request->date,

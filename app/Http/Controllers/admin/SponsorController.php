@@ -32,6 +32,13 @@ class SponsorController extends Controller
             $request->file('photo')->storeAs('/sponsor',$image_name);
 
         }
+        $request->validate([
+            'date'=> 'required',
+            'name'=>'required',
+            'ammount'=>'required',
+            'link'=>'required',
+            'photo'=>'required'
+        ]);
         Sponsor::create([
             'date'=>$request->date,
             'name'=>$request->name,

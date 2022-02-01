@@ -1,9 +1,9 @@
-@extends('user.welcome')
+@extends('admin.welcome')
 @section('content')
 
 <div class="container">
 
-    <form action="{{ route('user.pages.profileedit', $data->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.pages.profileedit', $data->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     @method('PATCH')
     <div class="row">

@@ -15,17 +15,17 @@
       <th>Age</th>
       <th>Foot</th>
     </tr>
-    @foreach ($players as $key=>$player)
+    @foreach ($player as $players)
     <tr>
       <td width="10%">
-          <img style="border-radius: 50%; " width="100px;" src=" {{asset('storage/players/'.$player->photo)}}" alt="players">
+          <img style="border-radius: 50%; " width="100px;" src=" {{asset('storage/players/'.$players->photo)}}" alt="players">
 
       </td>
-      <td width="14%">{{$player->jersy_no}}</td>
-      <td width="19%">{{$player->name}}</td>
-      <td width="16%">{{$player->position}}</td>
-      <td width="16%">{{$player->age}}</td>
-      <td width="16%">{{$player->foot}}</td>
+      <td width="14%">{{$players->jersy_no}}</td>
+      <td width="19%">{{$players->name}}</td>
+      <td width="16%">{{$players->position}}</td>
+      <td width="16%">{{$players->age}}</td>
+      <td width="16%">{{$players->foot}}</td>
     </tr>
     @endforeach
   </table>

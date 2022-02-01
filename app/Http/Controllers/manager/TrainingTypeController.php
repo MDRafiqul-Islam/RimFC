@@ -79,6 +79,10 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+              $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                  'dribbling' => 1
+              ]);
            }
            else{
             return redirect()->back()->with('error','Player Added For Today');
@@ -118,6 +122,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.dribbling')->with('success','Status Updated Successfully');
     }
 
@@ -139,6 +144,11 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+
+              $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                'crossing' => 1
+            ]);
            }
            else{
             return redirect()->back()->with('error','Player Added For Today');
@@ -178,6 +188,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.crossing')->with('success','Status Updated Successfully');
     }
 
@@ -200,6 +211,11 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+                $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                'heading' => 1
+            ]);
+
            }
            else{
             return redirect()->back()->with('error','Player Added For Today');
@@ -239,6 +255,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.heading')->with('success','Status Updated Successfully');
     }
 
@@ -260,9 +277,13 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+              $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                'passing' => 1
+            ]);
            }
            else{
-            return redirect()->back()->with('error','Player Added For Today');
+            return redirect()->back()->with('error','Player Added for Today');
            }
         }
         return redirect()->back()->with('success','Player Added To Training List');
@@ -299,6 +320,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.passing')->with('success','Status Updated Successfully');
     }
 
@@ -320,11 +342,16 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+              $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                'shooting' => 1
+            ]);
            }
            else{
-            return redirect()->back()->with('error','Player Added For Today');
+            return redirect()->back()->with('error','Player Added For Training');
            }
         }
+
         return redirect()->back()->with('success','Player Added To Training List');
     }
 
@@ -359,6 +386,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.shooting')->with('success','Status Updated Successfully');
     }
 
@@ -379,9 +407,13 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+              $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                'tracling' => 1
+            ]);
            }
            else{
-            return redirect()->back()->with('error','Player Added For Today');
+            return redirect()->back()->with('error','Player Added For Training');
            }
         }
         return redirect()->back()->with('success','Player Added To Training List');
@@ -418,6 +450,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.tracling')->with('success','Status Updated Successfully');
     }
 
@@ -438,9 +471,13 @@ class TrainingTypeController extends Controller
                   'date'=> Carbon::now(),
                   'player_id' => $train->player_id,
               ]);
+              $training =Training::where('player_id', $train->player_id);
+              $training->update([
+                'turning' => 1
+            ]);
            }
            else{
-            return redirect()->back()->with('error','Player Added For Today');
+            return redirect()->back()->with('error','Player Added For Training');
            }
         }
         return redirect()->back()->with('success','Player Added To Training List');
@@ -477,6 +514,7 @@ class TrainingTypeController extends Controller
                 ]);
             }
         }
+        Training::whereNotNull('id')->delete();
         return redirect()->route('manager.pages.training.turning')->with('success','Status Updated Successfully');
     }
 

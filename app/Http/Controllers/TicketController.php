@@ -105,7 +105,5 @@ class TicketController extends Controller
     {
         $ticket=Purchased::find($id)->delete();
         return redirect()->route('user.pages.showticket')->with('success','Your Ticket Has Been Cancled');
-
     }
-
 }

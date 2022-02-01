@@ -34,6 +34,7 @@ class PlayerStateController extends Controller
         $cleansheet = $request->cleansheet;
         $save = $request->save;
 
+
         for($i=0;$i<count($name);$i++){
         if(! State::where('player_id', $name[$i])->exists())
         {

@@ -6,8 +6,11 @@ use App\Models\Player;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Achievement;
 use App\Models\Gellary;
+use App\Models\PlayerTraining;
 use App\Models\Result;
+use App\Models\Training;
 
 class GalleryController extends Controller
 {
@@ -28,6 +31,10 @@ class GalleryController extends Controller
             'name'=>$request->name
         ]);
         return redirect()->route('admin.pages.showGalleryCategory')->with('success','Category Created Successfully.');
+    }
+    public function deleteCategory($id){
+       Category::find($id)->delete();
+       return redirect()->route('admin.pages.showGalleryCategory')->with('success','Category deleted Successfully.');
     }
     public function showGallery()
     {
@@ -63,6 +70,11 @@ class GalleryController extends Controller
        return redirect()->route('admin.pages.showGallery')->with('success','Player Added To Gellary.');
     }
 
+    public function deleteGallery($id){
+        Gellary::find($id)->delete();
+        return redirect()->route('admin.pages.showGallery')->with('success','Image Deleted Successfully');
+    }
+
 
     public function showGalleryresult()
     {
@@ -92,5 +104,67 @@ class GalleryController extends Controller
             'photo'=>implode("|",$images),
        ]);
        return redirect()->route('admin.pages.showGallery')->with('success','Gellary Added To Gellary.');
+    }
+
+
+
+    public function showGalleryachievement()
+    {
+        $data = Gellary::all();
+        return view('admin.pages.gellaryachievement', compact('data'));
+    }
+    public function createGalleryachievement($achievement_id)
+    {
+        $result= Achievement::find($achievement_id);
+        $gallery= Category::all();
+        return view('admin.pages.creategalleryachivement',compact('result','gallery'));
+    }
+    public function addGalleryachievement(Request $request)
+    {
+       $images=array();
+                if($files=$request->file('photo')){
+                foreach($files as $file){
+                $name=date('Ymdhis').'.'.$file->getClientOriginalName();
+                $file->storeAs('/gellary',$name);
+                $images[]=$name;
+                }
+        }
+       Gellary::create([
+            'achivement_id'=>$request->achievement_id,
+            'date'=>$request->date,
+            'category_id'=>$request->category_id,
+            'photo'=>implode("|",$images),
+       ]);
+       return redirect()->route('admin.pages.showGallery')->with('success','Image Added To Gellary.');
+    }
+
+
+    public function showGallerytraining()
+    {
+        $data = Gellary::all();
+        return view('admin.pages.gellarytraining', compact('data'));
+    }
+    public function createGallerytraining()
+    {
+        $gallery= Category::all();
+        return view('admin.pages.creategallerytraining',compact('gallery'));
+    }
+    public function addGallerytraining(Request $request)
+    {
+       $images=array();
+                if($files=$request->file('photo')){
+                foreach($files as $file){
+                $name=date('Ymdhis').'.'.$file->getClientOriginalName();
+                $file->storeAs('/gellary',$name);
+                $images[]=$name;
+                }
+        }
+       Gellary::create([
+            'achivement_id'=>$request->achievement_id,
+            'date'=>$request->date,
+            'category_id'=>$request->category_id,
+            'photo'=>implode("|",$images),
+       ]);
+       return redirect()->route('admin.pages.showGallery')->with('success','Image Added To Gellary.');
     }
 }

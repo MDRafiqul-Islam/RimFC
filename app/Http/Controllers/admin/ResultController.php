@@ -22,6 +22,10 @@ class ResultController extends Controller
 
     public function addResult(Request $request)
     {
+        $request->validate([
+            'mygoal'=>'required',
+            'opponentgoal'=>'required',
+        ]);
         Result::create([
             'photo'=>$request->photo,
             'date'=>$request->date,

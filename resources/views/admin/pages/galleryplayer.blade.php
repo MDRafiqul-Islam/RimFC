@@ -26,6 +26,9 @@
         padding-top: 25px;
         margin-left: 48%;
   }
+  .button{
+      margin-left: 45%;
+  }
   </style>
 
 <br>
@@ -41,6 +44,7 @@
 </div>
   @endforeach
   @endif
+  <a class="button" href="{{ route('admin.pages.deleteGallery',$gellary->id)}}">Delete</a>
 </div>
 <br>
 @endforeach

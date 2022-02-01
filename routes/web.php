@@ -45,7 +45,10 @@ Route::post('/registration',[UserController::class,'registration'])->name('user.
 Route::post('/login',[UserController::class,'login'])->name('user.login');
 Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 Route::get('/profile/{id}',[UserController::class,'userprofile'])->name('user.profile')->middleware('auth');
-
+//profile
+Route::get('/pages/editprofile/{id}',[UserController::class, 'editprofile'])->name('user.pages.editprofile')->middleware('auth');
+Route::patch('/pages/profileedit/{id}',[UserController::class, 'profileedit'])->name('user.pages.profileedit')->middleware('auth');
+Route::get('/ticketprint/{id}',[UserHomeController::class, 'ticketPrint'])->name('user.pages.ticketprint')->middleware('auth');
 //player
 Route::get('/pages/playersList',[UserHomeController::class, 'showPlayer'])->name('user.pages.playerslist');
 Route::get('/pages/playerdetailes/{player_id}',[UserHomeController::class, 'playerdetailes'])->name('user.pages.playerdetailes');
@@ -86,8 +89,8 @@ Route::get('/pages/partnerlist',[UserHomeController::class, 'showsponsor'])->nam
 
 Route::group(['prefix'=>'manager', 'middleware'=>['auth','manager']],function (){
     Route::get('/', function () {
-            return view('manager.pages.playerslist');
-        })->name('website');
+            return view('manager.welcome');
+        });
 Route::get('/manager/profile/{id}',[UserController::class,'managerprofile'])->name('manager.profile');
 //player
 Route::get('/pages/playersList',[playercontroller::class, 'showPlayer'])->name('manager.pages.playerslist');
@@ -158,6 +161,10 @@ Route::patch('/pages/editstatuslist/{id}', [TrainingTypeController::class, 'edit
 
 //Result
 Route::get('/pages/result',[playercontroller::class, 'showResult'])->name('manager.pages.result');
+
+//profile
+Route::get('/pages/editprofile/{id}',[UserController::class, 'managereditprofile'])->name('manager.pages.editprofile');
+Route::patch('/pages/profileedit/{id}',[UserController::class, 'managerprofileedit'])->name('manager.pages.profileedit');
 
 
 });
@@ -237,6 +244,7 @@ Route::patch('pages/block/{id}', [UserController::class, 'block'])->name('admin.
 Route::get('/pages/createticket/{fixture_id}',[TicketController::class, 'createTicket'])->name('admin.pages.createticket');
 Route::post('/pages/addticket',[TicketController::class, 'addTicket'])->name('admin.pages.addticket');
 Route::get('/pages/showticket',[TicketController::class, 'showTicket'])->name('admin.pages.showticket');
+Route::get('/pages/ticketshow',[ManageController::class, 'ticketshow'])->name('admin.pages.ticketshow');
 
 
 //training
@@ -257,6 +265,8 @@ Route::get('/pages/showGalleryCategory',[GalleryController::class, 'showGalleryC
 Route::get('/pages/createGalleryCategory',[GalleryController::class, 'createGalleryCategory'])->name('admin.pages.createGalleryCategory');
 Route::post('/pages/createCategory',[GalleryController::class, 'createCategory'])->name('admin.pages.createCategory');
 Route::get('/pages/showGallery',[GalleryController::class, 'showGallery'])->name('admin.pages.showGallery');
+Route::get('/pages/Deletecategory/{id}',[GalleryController::class, 'deletecategory'])->name('admin.pages.deletecategory');
+Route::get('/pages/DeleteGallery/{id}',[GalleryController::class, 'deleteGallery'])->name('admin.pages.deleteGallery');
    //player
 Route::get('/pages/showGalleryplayer',[GalleryController::class, 'showGalleryplayer'])->name('admin.pages.showGalleryplayer');
 Route::get('/pages/createGalleryplayer/{player_id}',[GalleryController::class, 'createGalleryplayer'])->name('admin.pages.createGalleryplayer');
@@ -266,11 +276,19 @@ Route::get('/pages/showGalleryresult',[GalleryController::class, 'showGalleryres
 Route::get('/pages/createGalleryresult/{result_id}',[GalleryController::class, 'createGalleryresult'])->name('admin.pages.createGalleryresult');
 Route::post('/pages/addGalleryresult',[GalleryController::class, 'addGalleryresult'])->name('admin.pages.addGalleryresult');
    //achievement
+Route::get('/pages/showGalleryachievement',[GalleryController::class, 'showGalleryachievement'])->name('admin.pages.showGalleryachievement');
+Route::get('/pages/createGalleryachievement/{achievement_id}',[GalleryController::class, 'createGalleryachievement'])->name('admin.pages.createGalleryachievement');
+Route::post('/pages/addGalleryachievement',[GalleryController::class, 'addGalleryachievement'])->name('admin.pages.addGalleryachievement');
+   //training
+Route::get('/pages/showGallerytraining',[GalleryController::class, 'showGallerytraining'])->name('admin.pages.showGallerytraining');
+Route::get('/pages/createGallerytraining',[GalleryController::class, 'createGallerytraining'])->name('admin.pages.createGallerytraining');
+Route::post('/pages/addGallerytraining',[GalleryController::class, 'addGallerytraining'])->name('admin.pages.addGallerytraining');
 
 //Player Achievement
 Route::get('/pages/PlayerAchievement',[PlayerListController::class, 'pachivement'])->name('admin.pages.playerachievement');
 Route::get('/pages/editplayerAchievement/{player_id}',[PlayerListController::class, 'pachivementEdit'])->name('admin.pages.editplayerachievement');
 Route::patch('/pages/playerAchievementedit/{id}',[PlayerListController::class, 'editpachivement'])->name('admin.pages.playerachievementedit');
+
 
 //achievement
 Route::get('/pages/Achievement',[AchievementController::class, 'achievement'])->name('admin.pages.achievement');
@@ -279,5 +297,9 @@ Route::post('/pages/createAchievementlist',[AchievementController::class, 'addac
 Route::get('/pages/Deleteachievement/{id}',[AchievementController::class, 'deleteachievemnt'])->name('admin.pages.deleteachievement');
 Route::get('/pages/editAchievement/{id}',[AchievementController::class, 'achivementEdit'])->name('admin.pages.editachievement');
 Route::patch('/pages/achievementedit/{id}',[AchievementController::class, 'editachivement'])->name('admin.pages.achievementedit');
+
+//profile
+Route::get('/pages/editprofile/{id}',[UserController::class, 'admineditprofile'])->name('admin.pages.editprofile');
+Route::patch('/pages/profileedit/{id}',[UserController::class, 'adminprofileedit'])->name('admin.pages.profileedit');
 
 });

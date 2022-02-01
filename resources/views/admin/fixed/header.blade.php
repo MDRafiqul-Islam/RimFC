@@ -52,6 +52,7 @@
                     <a href="{{ route('admin.pages.manageuser') }}">User</a>
                     <a href="{{ route('admin.pages.partnerlist') }}">Partner</a>
                     <a href="{{ route('admin.pages.achievement') }}">Achievement</a>
+                    <a href="{{ route('admin.pages.ticketshow') }}">Sell Ticket</a>
                   </div>
                 </li>
               </ul>

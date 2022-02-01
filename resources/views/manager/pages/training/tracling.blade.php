@@ -32,17 +32,19 @@
       <th>Name</th>
     </tr>
     @foreach ($data as $training)
+    @if($training->tackling == 1)
     <tr>
     <td>{{ $training->date }}</td>
     <td>{{ $training->Player->name }}</td>
     </tr>
+    @endif
     @endforeach
 </table>
 <br><br>
 <a class="button" href="{{ route('manager.pages.addtainingtracling') }}">Add Player</a>
 {{-- @dd($data) --}}
 @foreach ($data as $training)
-@if ($training->date != null)
+@if ($training->date != null && $training->tackling == 1)
 <a class="button" href="{{ route('manager.pages.tracling') }}">Train</a>
 @break
 @endif

@@ -34,8 +34,7 @@
 <br>
 {{-- @dd($data) --}}
 @foreach ($data as $gellary)
-@if($gellary->category_id == 2)
-<h1> Date: {{ $gellary->date }}</h1>
+@if($gellary->category_id == 4)
 <div class="card-containers">
     @foreach (explode('|', $gellary->photo) as $image)
   <div class="cards">
@@ -46,6 +45,7 @@
 @endif
 <a class="button" href="{{ route('admin.pages.deleteGallery',$gellary->id)}}">Delete</a>
 @endforeach
-<br>
-
+<br><br>
+<a href="{{ route('admin.pages.createGallerytraining') }}" class="button">Add Image</a>
+<br><br>
 @endsection

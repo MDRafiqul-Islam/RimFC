@@ -13,6 +13,7 @@ use App\Models\VenuGallery;
 use App\Models\Pachievement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Purchased;
 
 class UserHomeController extends Controller
 {
@@ -75,6 +76,12 @@ class UserHomeController extends Controller
     {
         $data= Sponsor::all();
         return view('user.pages.sponsor',compact('data'));
+    }
+
+    public function ticketPrint($id)
+    {
+        $tic = Purchased::find($id);
+        return view('user.ticketprint', compact('tic'));
     }
 
 
