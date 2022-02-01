@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Fixture;
+use App\Models\Formation;
 use App\Models\Purchased;
 
 class ManageController extends Controller
@@ -27,5 +28,11 @@ class ManageController extends Controller
            }
        }
        return view('admin.pages.ticketshow',compact('fixture'));
+    }
+
+    public function matchplayer()
+    {
+        $matchplayer=Formation::all();
+        return view('admin.pages.mathplayer', compact('matchplayer'));
     }
 }

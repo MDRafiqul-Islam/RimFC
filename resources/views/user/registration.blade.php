@@ -85,7 +85,7 @@
         <input type="email" name="email" placeholder="Email">
     </div>
     <div class="form-field">
-      <input type="password" name="password" placeholder="Password">
+      <input type="password" name="password" placeholder="Password" minlength="6">
     </div>
     <div class="form-field">
         <input type="hidden" name="photo" value="default.jpg">

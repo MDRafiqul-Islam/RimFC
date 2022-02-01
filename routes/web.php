@@ -190,7 +190,7 @@ Route::get('/pages/Deleteplayer/{player_id}',[PlayerListController::class, 'play
 Route::get('/pages/EditPlayer/{player_id}', [PlayerListController::class, 'playerEdit'])->name('admin.pages.editplayers');
 Route::patch('/pages/EditPlayerlist/{player_id}', [PlayerListController::class, 'editPlayerList'])->name('admin.pages.editplayerlist');
 Route::get('/pages/searchplayers',[PlayerListController::class, 'serach'])->name('admin.pages.searchplayer');
-
+Route::get('/pages/matchplayers',[ManageController::class, 'matchplayer'])->name('admin.pages.matchplayer');
 //player-state
 Route::get('/pages/playerStateList',[PlayerStateController::class, 'showState'])->name('admin.pages.playerstatelist');
 Route::get('/pages/createplayerStateList',[PlayerStateController::class, 'createState'])->name('admin.pages.createplayerstate');
@@ -245,7 +245,9 @@ Route::get('/pages/createticket/{fixture_id}',[TicketController::class, 'createT
 Route::post('/pages/addticket',[TicketController::class, 'addTicket'])->name('admin.pages.addticket');
 Route::get('/pages/showticket',[TicketController::class, 'showTicket'])->name('admin.pages.showticket');
 Route::get('/pages/ticketshow',[ManageController::class, 'ticketshow'])->name('admin.pages.ticketshow');
-
+Route::get('/pages/editticket/{id}',[TicketController::class, 'editticket'])->name('admin.pages.editticket');
+Route::patch('/pages/ticketedit/{id}',[TicketController::class, 'ticketedit'])->name('admin.pages.ticketedit');
+Route::patch('/pages/deleteticket/{id}',[TicketController::class, 'ticketdelete'])->name('admin.pages.deleteticket');
 
 //training
 Route::get('/pages/trainingstatus',[TrainingTypeController::class, 'admintrainingstatus'])->name('admin.pages.trainingstatus');

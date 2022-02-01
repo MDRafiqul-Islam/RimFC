@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Venu;
 use App\Models\Ticket;
 use App\Models\Fixture;
+use App\Models\Formation;
 use App\Models\Purchased;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -105,5 +106,27 @@ class TicketController extends Controller
     {
         $ticket=Purchased::find($id)->delete();
         return redirect()->route('user.pages.showticket')->with('success','Your Ticket Has Been Cancled');
+    }
+
+    public function editticket($id)
+    {
+        $data =Ticket::find($id);
+        $data1 = Venu::all();
+        return view('admin.pages.editticket', compact('data','data1'));
+    }
+
+    public function ticketedit(Request $request, $id)
+    {
+        $data = Ticket::find($id);
+        $data->update([
+            'price'=> $request->price
+        ]);
+        return redirect()->route('admin.pages.showticket')->with('success','Ticket Has Been Updated');
+    }
+
+    public function ticketdelete($id)
+    {
+        Ticket::find($id)->delete();
+        return redirect()->route('admin.pages.showticket')->with('success','Ticket Deleted Successfully');
     }
 }

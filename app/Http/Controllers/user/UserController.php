@@ -24,12 +24,12 @@ class UserController extends Controller
     }
     public function registration(Request $request)
     {
-        // $request->validate([
-        //     'email'=>  ['required', 'unique:posts'],
-        //     'password'=> ['required', 'min:6'],
-        //     'mobile'=> ['required', 'unique:posts', 'max:20'],
-        //     'name'=>'name',
-        // ]);
+        $request->validate([
+            'email'=> 'email:rfc,dns,strict,filter',
+            'password'=> 'required',
+            'mobile'=> 'required',
+            'name'=>'required',
+        ]);
         User::create([
             'name'=>$request->name,
             'email'=>$request->email,

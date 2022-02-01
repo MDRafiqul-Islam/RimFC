@@ -39,7 +39,7 @@
                 <a href="{{route('admin.pages.playerslist')}}">Players</a>
                 <a href="{{ route('admin.pages.playerstatelist') }}">Player Stats</a>
                 <a href="{{ route('admin.pages.trainingstatus') }}">Training Stats</a>
-                <a href="#">Match Player</a>
+                <a href="{{ route('admin.pages.matchplayer') }}">Match Player</a>
                 <a href="{{ route('admin.pages.playerachievement') }}">Player Achievement</a>
                 </div>
                 </li>
