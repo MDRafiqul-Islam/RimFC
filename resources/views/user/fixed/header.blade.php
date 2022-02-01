@@ -34,6 +34,7 @@
                     <a href="{{ route('user.pages.result') }}">Results</a>
                   </div>
                 </li>
+                <li class="nav__item"><a href="{{ route('user.pages.showGallery') }}">Gellary</a></li>
                 <li class="nav__item"><a href="{{ route('user.pages.playerslist') }}">Players</a></li>
                 <li class="nav__item"><a href="{{ route('user.pages.showticket') }}">Ticket</a></li>
                 <li class="nav__item">More

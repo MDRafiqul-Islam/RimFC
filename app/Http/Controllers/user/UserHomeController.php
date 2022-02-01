@@ -8,12 +8,13 @@ use App\Models\State;
 use App\Models\Player;
 use App\Models\Result;
 use App\Models\Fixture;
+use App\Models\Gellary;
 use App\Models\Sponsor;
+use App\Models\Purchased;
 use App\Models\VenuGallery;
 use App\Models\Pachievement;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Purchased;
 
 class UserHomeController extends Controller
 {
@@ -83,6 +84,36 @@ class UserHomeController extends Controller
         $tic = Purchased::find($id);
         return view('user.ticketprint', compact('tic'));
     }
+    public function showGallery()
+    {
+        return view('user.pages.gellary');
+    }
+
+    public function showGalleryplayer()
+    {
+        $data = Gellary::all();
+        return view('user.pages.gellaryplayer', compact('data'));
+    }
+
+    public function showGalleryresult()
+    {
+        $data = Gellary::all();
+        return view('user.pages.gellaryresult', compact('data'));
+    }
+
+    public function showGalleryachievement()
+    {
+        $data = Gellary::all();
+        return view('user.pages.gellaryachievement', compact('data'));
+    }
+
+    public function showGallerytraining()
+    {
+        $data = Gellary::all();
+        return view('user.pages.gellarytraining', compact('data'));
+    }
+
+
 
 
 }

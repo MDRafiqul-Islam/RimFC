@@ -75,7 +75,6 @@ class GalleryController extends Controller
         return redirect()->route('admin.pages.showGallery')->with('success','Image Deleted Successfully');
     }
 
-
     public function showGalleryresult()
     {
         $data = Gellary::all();

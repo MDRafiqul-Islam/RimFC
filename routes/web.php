@@ -81,6 +81,12 @@ Route::get('/pages/result',[UserHomeController::class, 'showResult'])->name('use
 Route::get('/pages/venu',[UserHomeController::class, 'showvenu'])->name('user.pages.venu');
 //sponsor
 Route::get('/pages/partnerlist',[UserHomeController::class, 'showsponsor'])->name('user.pages.partnerlist');
+//gellary
+Route::get('/pages/showGallery',[UserHomeController::class, 'showGallery'])->name('user.pages.showGallery');
+Route::get('/pages/showGalleryplayer',[UserHomeController::class, 'showGalleryplayer'])->name('user.pages.showGalleryplayer');
+Route::get('/pages/showGalleryresult',[UserHomeController::class, 'showGalleryresult'])->name('user.pages.showGalleryresult');
+Route::get('/pages/showGallerytraining',[UserHomeController::class, 'showGallerytraining'])->name('user.pages.showGallerytraining');
+Route::get('/pages/showGalleryachievement',[UserHomeController::class, 'showGalleryachievement'])->name('user.pages.showGalleryachievement');
 });
 
 
