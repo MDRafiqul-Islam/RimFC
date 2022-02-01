@@ -42,10 +42,10 @@ class UserHomeController extends Controller
     public function playerdetailes($player_id)
     {
         $player = Player::find($player_id);
-        $achievement = Pachievement::where('player_id', $player_id);
+        $achievement = Pachievement::where('player_id', $player_id)->first();
         if(State::where('player_id', $player_id)->exists())
         {
-         $state= State::where('player_id', $player_id);
+         $state= State::where('player_id', $player_id)->first();
          return view('user.pages.playerdetailes', compact('player', 'achievement', 'state'));
         }
         return view('user.pages.playerdetailes', compact('player', 'achievement'));

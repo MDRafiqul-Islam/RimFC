@@ -9,18 +9,11 @@
     padding-left: 35%;
   }
 
-  hr {
-    border: 1px solid black;
-    width: 90%;
-    background-color:black;
-    box-shadow:20px 20px 50px grey;
-
-  }
 
   .detailes{
     width: 75%;
-    padding-left: 25%;
-    font-family: "Times New Roman", Georgia, serif;
+    padding-left: 20%;
+    font-family: "Times New Roman", Georgia, serif !important;
     text-align: justify;
     text-indent: 50px;
     word-spacing: 6px;
@@ -39,7 +32,10 @@
 <hr>
 <br>
 <div class="detailes">
-    <h2>This is {{ $player->name }}. He contain {{ $player->jersy_no }} jersy. He is {{ $player->age }} years old. He is a {{ $player->foot }}</h2>
+    <h2>This is {{ $player->name }}. He contains {{ $player->jersy_no }} jersy. He is {{ $player->age }} years old. He is a {{ $player->foot }} footballer.
+        He got {{ $achievement->ballon_d_or }} ballon_d_or, {{ $achievement->fifa_best }} fifa_best award, {{ $achievement->ball }} golden ball, {{ $achievement->boot }} golden boot and {{ $achievement->globes}} golden globes.
+        He does {{ $state->tracle }} tracle, {{ $state->clear }} clear, {{ $state->goal }} goal, {{ $state->assist }} assist,
+        {{ $state->cleansheet }} cleansheet, {{ $state->save }} save.</h2><br>
 </div>
 <br><br>
 @endsection
