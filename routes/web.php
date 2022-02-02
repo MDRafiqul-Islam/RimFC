@@ -99,6 +99,7 @@ Route::get('/pages/playersList',[playercontroller::class, 'showPlayer'])->name('
 Route::get('/pages/matchplayer',[FormationController::class, 'matchPlayer'])->name('manager.pages.matchplayer');
 Route::get('/pages/editplayer/{id}',[FormationController::class, 'editplayer'])->name('manager.pages.editplayer');
 Route::patch('/pages/playeredit/{id}',[FormationController::class, 'playeredit'])->name('manager.pages.playeredit');
+Route::get('/pages/playerstate',[playercontroller::class, 'playerstate'])->name('manager.pages.playerstate');
 
 //fixture
 Route::get('/pages/fixture',[ManagerFixtureController::class, 'showFixture'])->name('manager.pages.fixture');

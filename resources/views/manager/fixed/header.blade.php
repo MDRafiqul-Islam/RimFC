@@ -35,6 +35,7 @@
                   <div class="dropdown-content">
                     <a href="{{ route('manager.pages.position') }}">Position</a>
                     <a href="{{ route('manager.pages.matchplayer') }}">Match Player</a>
+                    <a href="{{ route('manager.pages.playerstate') }}">Player State</a>
                   </div>
                 </li>
                 <li class="nav__item">Training

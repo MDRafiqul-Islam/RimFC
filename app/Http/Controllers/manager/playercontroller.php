@@ -7,6 +7,7 @@ use App\Models\Result;
 use App\Models\Fixture;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\State;
 
 class playercontroller extends Controller
 {
@@ -42,6 +43,12 @@ class playercontroller extends Controller
         }
         return view('manager.pages.home', compact('player','available','fixavail'));
 
+    }
+
+    public function playerstate()
+    {
+        $state = State::all();
+        return view('manager.pages.playerstate', compact('state'));
     }
 
 }
