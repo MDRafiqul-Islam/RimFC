@@ -113,7 +113,58 @@ class UserHomeController extends Controller
         return view('user.pages.gellarytraining', compact('data'));
     }
 
+    public function dashboard()
+    {
+        $state= State::all();
+        $topscore = 0;
+        $assist = 0;
+        $min = 0;
+        $min1 = 0;
+        $topscorer = null;
+        $topassist = null;
+        foreach($state as $states)
+        {
+            if($states->goal > $topscore)
+            {
 
+                $topscore = $states->goal;
+                $topscorer = $states->player_id;
+                $min =  $states->min;
+            }
+            elseif($states->goal == $topscore)
+            {
+                if($states->min < $min)
+                {
+                    $topscore = $states->goal;
+                    $topscorer = $states->player_id;
+                }
+            }
 
+        }
+        foreach($state as $states)
+        {
+            if($states->assist > $assist)
+            {
+                $assist = $states->assist;
+                $topassist = $states->player_id;
+                $min1 =  $states->min;
+            }
+            elseif($states->assist == $assist)
+            {
+                if($states->min < $min1)
+                {
+                    $assist= $states->assist;
+                    $topassist = $states->player_id;
+                }
+            }
+        }
+
+        $Player1 = State::where('player_id', $topscorer)->first();
+        $Player2 = State::where('player_id', $topassist)->first();
+        $news = News::latest()->paginate(2);
+        $result = Result::latest()->paginate(1);
+        $fixture = Fixture::whereDate('date', '>', date("Y-m-d"))->get();
+        return view('user.pages.home',compact('Player1', 'Player2','news','fixture','result'));
+    }
 
 }

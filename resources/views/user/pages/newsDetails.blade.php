@@ -8,12 +8,13 @@
       background: whitesmoke;
       color: rgba(0, 0, 0, 0.747);
       font-size: 30px;
-      padding-left: 22%;
+      padding-left: 5%;
       margin: 10px;
       padding-top: 20px;
       font-family: "Times New Roman", Georgia, serif;
       background-size: relative;
       text-transform: uppercase;
+      padding-right: 3%;
   }
 
   .img img{
@@ -39,6 +40,7 @@
     word-spacing: 6px;
     line-height: 1.4;
     font-size: 19px;
+    padding-right: 3%;
 
   }
 

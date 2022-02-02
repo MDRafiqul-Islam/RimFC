@@ -23,6 +23,7 @@
                 menu
               </button>
               <ul class="nav__wrapper">
+                <li class="nav__item"><a href="{{ url('/') }}">Home</a></li>
                 <li class="nav__item"><a href="{{ route('user.pages.news') }}">News</a></li>
                 @if(auth()->user())
                 <li class="nav__item"><a href="{{ route('user.pages.massage') }}">Massage @if (Auth::user()->unreadnotifications()->count() >0)

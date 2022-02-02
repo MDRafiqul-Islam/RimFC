@@ -13,7 +13,7 @@ class PlayerListController extends Controller
 {
     public function playerList()
     {
-        $Total_salary = 5000;
+        $Total_salary = 500000000;
         $player_salary=0;
         $remain_salary= $Total_salary;
         $players= Player::all();
@@ -34,7 +34,7 @@ class PlayerListController extends Controller
 
     public function addplayer(Request $request)
     {
-        $Total_salary = 5000;
+        $Total_salary = 500000000;
         $player_salary=0;
         $players= Player::all();
         $player_name = $request->name;

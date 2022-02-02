@@ -4,10 +4,10 @@
 <style>
 .salary{
   padding: 10px;
-  height: 110px;
-  width: 25%;
+  height: 130px;
+  width: 30%;
   background-color: whitesmoke;
-  margin-left: 72.5%;
+  margin-left: 68%;
 }
 h1{
     color: black;
@@ -27,9 +27,9 @@ h1{
 <br>
 
 <div class="salary">
-<h1>Total Ammount = € {{$Total_salary}} m </h1><br>
-<h1>Players Salary = € {{$player_salary}} m</h1><br>
-<h1>Remaining Ammount = € {{$remain_salary}} m</h1>
+<h1>Total Ammount = ৳ {{$Total_salary}}  </h1><br>
+<h1>Players Salary = ৳ {{$player_salary}} </h1><br>
+<h1>Remaining Ammount = ৳ {{$remain_salary}} </h1>
 </div>
 <br>
 <table id="players">

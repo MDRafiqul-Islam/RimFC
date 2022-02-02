@@ -42,9 +42,6 @@
         <td >{{$result->status}}</td>
     </tr>
     @endforeach
-
 </table>
 <br><br>
-
-
 @endsection

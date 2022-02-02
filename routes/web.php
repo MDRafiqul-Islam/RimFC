@@ -38,7 +38,7 @@ use GuzzleHttp\Psr7\Message;
 
 //user
 
-Route::get('/',[UserHomeController::class, 'home'])->name('user.website');
+Route::get('/',[UserHomeController::class, 'dashboard'])->name('user.website');
 Route::get('/dologin',[UserController::class,'dologin'])->name('user.dologin');
 Route::get('/doregistration',[UserController::class,'doregistration'])->name('user.doregistration');
 Route::post('/registration',[UserController::class,'registration'])->name('user.registration');
@@ -58,9 +58,6 @@ Route::get('/pages/news',[UserHomeController::class, 'shownews'])->name('user.pa
 Route::get('/pages/newsdetailes/{news_id}',[UserHomeController::class, 'shownewsdetailes'])->name('user.pages.newsDetails');
 
 Route::group(['prefix'=>'user'],function (){
-    Route::get('/', function () {
-            return view('user.welcome');
-        })->name('website');
 //massage
 Route::get('/pages/massage',[MessageController::class, 'usermassage'])->name('user.pages.massage')->middleware('auth');
 Route::post('/pages/createmassage/{user_id}',[MessageController::class, 'usercreatemassage'])->name('user.pages.createmassage')->middleware('auth');
@@ -94,9 +91,8 @@ Route::get('/pages/showGalleryachievement',[UserHomeController::class, 'showGall
 
 
 Route::group(['prefix'=>'manager', 'middleware'=>['auth','manager']],function (){
-    Route::get('/', function () {
-            return view('manager.welcome');
-        });
+    Route::get('/', [playercontroller::class, 'dashboard']);
+
 Route::get('/manager/profile/{id}',[UserController::class,'managerprofile'])->name('manager.profile');
 //player
 Route::get('/pages/playersList',[playercontroller::class, 'showPlayer'])->name('manager.pages.playerslist');
@@ -182,11 +178,7 @@ Route::patch('/pages/profileedit/{id}',[UserController::class, 'managerprofileed
 
 
 Route::group(['prefix'=>'admin','middleware'=>['auth','admin']],function (){
-    Route::get('/', function () {
-            return view('admin.welcome');
-        });
-
-
+    Route::get('/', [ManageController::class,'dashboard']);
 Route::get('/admin/profile/{id}',[UserController::class,'adminprofile'])->name('admin.profile');
 //players
 Route::get('/pages/playersList',[PlayerListController::class, 'playerList'])->name('admin.pages.playerslist');

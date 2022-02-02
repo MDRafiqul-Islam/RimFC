@@ -23,6 +23,7 @@
                 menu
               </button>
               <ul class="nav__wrapper">
+                <li class="nav__item"> <a href="{{ url('/manager') }}">Home</a></li>
                 <li class="nav__item">Fixures
                 <div class="dropdown-content">
                     <a href="{{ route('manager.pages.fixture') }}">Fixture</a>
