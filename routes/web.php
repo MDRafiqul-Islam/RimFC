@@ -1,27 +1,28 @@
 <?php
 
-use App\Http\Controllers\AchievementController;
+use App\Models\Achievement;
+use GuzzleHttp\Psr7\Message;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\TicketController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PasswordController;
 use App\Http\Controllers\user\UserController;
 use Illuminate\Routing\Route as RoutingRoute;
+use App\Http\Controllers\admin\VenuController;
 use App\Http\Controllers\PlayerListController;
+use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\admin\ManageController;
 use App\Http\Controllers\admin\ResultController;
 use App\Http\Controllers\admin\FixtureController;
 use App\Http\Controllers\admin\GalleryController;
-use App\Http\Controllers\admin\ManageController;
+use App\Http\Controllers\admin\SponsorController;
 use App\Http\Controllers\user\UserHomeController;
 use App\Http\Controllers\manager\playercontroller;
 use App\Http\Controllers\admin\PlayerStateController;
-use App\Http\Controllers\admin\SponsorController;
-use App\Http\Controllers\admin\VenuController;
 use App\Http\Controllers\manager\FormationController;
 use App\Http\Controllers\manager\TrainingTypeController;
 use App\Http\Controllers\manager\Fixturecontroller as ManagerFixtureController;
-use App\Http\Controllers\MessageController;
-use App\Http\Controllers\TicketController;
-use App\Models\Achievement;
-use GuzzleHttp\Psr7\Message;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +35,14 @@ use GuzzleHttp\Psr7\Message;
 |
 */
 
+//forget password
 
-
+Route::get('/reset/Password', function () {
+    return view('auth.forgot_password');
+});
+Route::post('/password/mail', [PasswordController::class, 'send'])->name('send.mail');
+Route::get('/password/reset/{token}/{email}', [PasswordController::class, 'resetView'])->name('pass.reset');
+Route::post('/password/reset/', [PasswordController::class, 'resetPassword'])->name('reset.password');
 //user
 
 Route::get('/',[UserHomeController::class, 'dashboard'])->name('user.website');
@@ -189,6 +196,7 @@ Route::get('/pages/Deleteplayer/{player_id}',[PlayerListController::class, 'play
 Route::get('/pages/EditPlayer/{player_id}', [PlayerListController::class, 'playerEdit'])->name('admin.pages.editplayers');
 Route::patch('/pages/EditPlayerlist/{player_id}', [PlayerListController::class, 'editPlayerList'])->name('admin.pages.editplayerlist');
 Route::get('/pages/matchplayers',[ManageController::class, 'matchplayer'])->name('admin.pages.matchplayer');
+
 //player-state
 Route::get('/pages/playerStateList',[PlayerStateController::class, 'showState'])->name('admin.pages.playerstatelist');
 Route::get('/pages/createplayerStateList',[PlayerStateController::class, 'createState'])->name('admin.pages.createplayerstate');

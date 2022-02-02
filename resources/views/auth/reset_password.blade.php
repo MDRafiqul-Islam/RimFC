@@ -84,44 +84,24 @@
       align-items: center;
     }
     </style>
-    <body>
-
-    <form action="{{route('user.login')}}" method="post">
-        @csrf
-        <div class="container">
-            <div class="error1">
-                @if(session()->has('error'))
-                <p class="error">
-                    {{session()->get('error')}}
-                </p>
-                @endif
-                @if(session()->has('message'))
-                <p class="error">
-                    {{session()->get('message')}}
-                </p>
-                @endif
-                @if(session()->has('success'))
-                <p class="success">
-                    {{session()->get('success')}}
-                </p>
-                @endif
+        <form action="{{ route('reset.password') }}" method="POST">
+          @csrf
+          <div class="container">
+            <div class="form-field">
+              <label for="disabledTextInput">Your Email</label>
+              <input type="email" value="{{ $mail }}" name="mail" id="name" class="form-control" placeholder="Enter email">
             </div>
-        <h1>User Login</h1>
-      <div class="form-field">
-        <input type="email" name="email" placeholder="Email / Username">
-      </div>
-      <div class="form-field">
-        <input type="password" name="password" placeholder="Password"></div>
-      <div class="form-field">
-        <button class="btn" type="submit">Log in</button>
-      </div>
-      <div class="form-field">
-        <p>If you dont have a account please <a href="{{ route('user.doregistration') }}">Register</a></p>
-      </div>
-      <div class="form-field">
-        <a style="margin-left:30%" href="{{ url('/reset/Password') }}">Forget Password</a>
-      </div>
-        </div>
-    </form>
-    </body>
-    </html>
+            <div class="form-field">
+            <label for="exampleInputPassword1">New password</label>
+            <input name="password" type="password" class="form-control" id="name" placeholder="Password">
+          </div>
+          <div class="form-field">
+            <label for="exampleInputPassword1">Retype password</label>
+            <input type="password" class="form-control" id="name" placeholder="Password">
+          </div>
+          <div class="form-field">
+            <button class="btn" type="submit">Reset</button>
+          </div>
+          </form>
+    </div>
+  </div>
