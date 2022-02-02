@@ -13,15 +13,25 @@ class PlayerListController extends Controller
 {
     public function playerList()
     {
+
+        $players= Player::all();
         $Total_salary = 500000000;
         $player_salary=0;
         $remain_salary= $Total_salary;
-        $players= Player::all();
         foreach ($players as $key => $player) {
             $player_salary+= $player->salary;
             $remain_salary = $Total_salary- $player_salary;
         }
-        return view('admin.pages.playerslist',compact('players','Total_salary','player_salary','remain_salary'));
+
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $players = Player::where('name','LIKE','%'.$key.'%')
+                ->orWhere('jersy_no','LIKE','%'.$key.'%')
+                ->get();
+            return view('admin.pages.playerslist',compact('players','key','Total_salary','player_salary','remain_salary'));
+        }
+        return view('admin.pages.playerslist',compact('players','Total_salary','player_salary','remain_salary','key'));
     }
 
 
@@ -127,12 +137,6 @@ class PlayerListController extends Controller
         return redirect()->route('admin.pages.playerslist')->with('success','Player Edited.');
     }
 
-
-    public function serach(Request $request)
-    {
-        $players= Player::where('position', $request->search)->get();
-        return view('admin.pages.playersearch', compact('players'));
-    }
 
     public function pachivement()
     {

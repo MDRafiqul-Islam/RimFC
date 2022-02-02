@@ -25,8 +25,16 @@ class UserHomeController extends Controller
 
     public function showPlayer()
     {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $players = Player::where('name','LIKE','%'.$key.'%')
+                ->orWhere('jersy_no','LIKE','%'.$key.'%')
+                ->get();
+            return view('user.pages.playerlist',compact('players','key'));
+        }
         $players= Player::all();
-        return view('user.pages.playerlist',compact('players'));
+        return view('user.pages.playerlist',compact('players','key'));
     }
 
     public function shownews()

@@ -56,9 +56,9 @@
                 <label class="sr-only" for="search">Search</label>
                 <input
                   type="search"
-                  name=""
+                  name="search"
                   id="search"
-                  placeholder="What's on your mind?"
+                  placeholder="Search Player"
                 />
               </form>
             </div>

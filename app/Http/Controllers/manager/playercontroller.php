@@ -13,8 +13,16 @@ class playercontroller extends Controller
 {
     public function showPlayer()
     {
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $player = Player::where('name','LIKE','%'.$key.'%')
+                ->orWhere('jersy_no','LIKE','%'.$key.'%')
+                ->get();
+            return view('manager.pages.playerslist',compact('player','key'));
+        }
         $player=Player::all();
-        return view('manager.pages.playerslist',compact('player'));
+        return view('manager.pages.playerslist',compact('player','key'));
     }
 
     public function showResult()

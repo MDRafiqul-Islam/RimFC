@@ -64,13 +64,13 @@
               <button class="search__toggle" aria-label="Open search">
                 Search
               </button>
-              <form class="search__form" action="{{ route('admin.pages.searchplayer') }}">
+              <form class="search__form" action="#">
                 <label class="sr-only" for="search">Search</label>
                <input
                   type="search"
                   name="search"
                   id="search"
-                  placeholder="What's on your mind?"
+                  placeholder="Search Player"
                 />
               </form>
             </div>
