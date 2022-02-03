@@ -22,9 +22,9 @@
 <br>
 <div class="salary">
     @if($total_income>1000000)
-    <h1>Total Income = € {{$total_income/1000000}} m </h1>
+    <h1>Total Income = ৳ {{$total_income/1000000}} m </h1>
     @else
-    <h1>Total Income = € {{$total_income}} </h1>
+    <h1>Total Income = ৳ {{$total_income}} </h1>
     <br>
     @endif
     </div>

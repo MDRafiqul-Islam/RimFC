@@ -18,7 +18,7 @@ class CreateFormationsTable extends Migration
             $table->string('fixture_id');
             $table->date('date');
             $table->string('formation');
-            $table->string('player_id');
+            $table->string('player_id')->unique();
             $table->string('position');
             $table->string('status');
             $table->string('resultstatus')->default('0');

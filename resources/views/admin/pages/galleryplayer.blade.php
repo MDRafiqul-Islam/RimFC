@@ -44,9 +44,11 @@
 </div>
   @endforeach
   @endif
-  <a class="button" href="{{ route('admin.pages.deleteGallery',$gellary->id)}}">Delete</a>
+
 </div>
 <br>
+
 @endforeach
+<a class="button" href="{{ route('admin.pages.deleteGallery',$gellary->id)}}">Delete</a>
 
 @endsection

@@ -37,9 +37,12 @@ class TicketController extends Controller
     public function showTicket()
     {
         $data=Ticket::all();
+        $sum=0;
         foreach ($data as $ticket) {
             $total_income = $ticket->totalprice;
+            $sum+= $total_income;
         }
+        $total_income = $sum;
         return view('admin.pages.ticket',compact('data','total_income'));
     }
 
@@ -82,22 +85,27 @@ class TicketController extends Controller
 
     public function confirmcart(Request $request)
     {
-        $data= Purchased::where('user_id',Auth::user()->id)->first();
-        $ticket_id= $data->ticket_id;
+        $data= Purchased::where('user_id',Auth::user()->id)->get();
+        $data1= null;
+        foreach($data as $tick){
+            $data1 = Ticket::where('fixture_id', $tick->fixture_id)->first();
+        }
+        $data1= Purchased::where('fixture_id', $data1->fixture_id)->first();
+        $ticket_id= $data1->ticket_id;
         $ticket=Ticket::find($ticket_id);
-        $data->update([
+        $data1->update([
             'status'=>'confirm'
         ]);
-        if($ticket->ticket - $data->quantity == 0){
+        if($ticket->ticket - $data1->quantity == 0){
             $ticket->update([
                 'ticket'=> 0,
-                'totalprice'=> $ticket->totalprice + $data->price
+                'totalprice'=> $ticket->totalprice + $data1->price
             ]);
         }
         else{
         $ticket->update([
-            'ticket'=> $ticket->ticket - $data->quantity,
-            'totalprice'=> $ticket->totalprice + $data->price
+            'ticket'=> $ticket->ticket - $data1->quantity,
+            'totalprice'=> $ticket->totalprice + $data1->price
         ]);
     }
         return redirect()->route('user.pages.showticket')->with('success','Your Ticket is confirm');
