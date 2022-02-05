@@ -10,10 +10,10 @@
   @csrf
   <div class="row">
     <div class="col-25">
-      <label for="player_id">Player ID</label>
+
     </div>
     <div class="col-75">
-      <input type="text" id="name" name="player_id" value={{ $player->id }}>
+      <input type="hidden" id="name" name="player_id" value={{ $player->id }}>
     </div>
   </div>
   <div class="row">

@@ -27,6 +27,7 @@ class ManageController extends Controller
        $fixture = array();
        foreach($ticket as $data)
        {
+        //    dd(Fixture::find($data->fixture_id));
            if(Fixture::find($data->fixture_id)->resultstatus == '0'){
                array_push($fixture , $data);
            }

@@ -253,7 +253,7 @@ Route::get('/pages/showticket',[TicketController::class, 'showTicket'])->name('a
 Route::get('/pages/ticketshow',[ManageController::class, 'ticketshow'])->name('admin.pages.ticketshow');
 Route::get('/pages/editticket/{id}',[TicketController::class, 'editticket'])->name('admin.pages.editticket');
 Route::patch('/pages/ticketedit/{id}',[TicketController::class, 'ticketedit'])->name('admin.pages.ticketedit');
-Route::patch('/pages/deleteticket/{id}',[TicketController::class, 'ticketdelete'])->name('admin.pages.deleteticket');
+Route::get('/pages/deleteticket/{id}',[TicketController::class, 'ticketdelete'])->name('admin.pages.deleteticket');
 
 //training
 Route::get('/pages/trainingstatus',[TrainingTypeController::class, 'admintrainingstatus'])->name('admin.pages.trainingstatus');
